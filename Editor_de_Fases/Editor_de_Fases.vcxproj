@@ -132,6 +132,7 @@
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.cpp" />
+    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\main.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.h" />
+    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.h" />
   </ItemGroup>

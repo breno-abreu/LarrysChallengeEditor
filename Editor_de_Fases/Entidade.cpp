@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, String _tipo, String _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento, float _altura)
+Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento, float _altura)
 {
 	codigo = _codigo;
 	xTile = 0;
@@ -57,7 +57,7 @@ void Entidade::setCodigo(const int _codigo)
 {
 	codigo = _codigo;
 }
-void Entidade::setTipo(const String _tipo)
+void Entidade::setTipo(const string _tipo)
 {
 	tipo = _tipo;
 }
@@ -101,7 +101,7 @@ int Entidade::getCodigo() const
 {
 	return codigo;
 }
-String Entidade::getTipo() const
+string Entidade::getTipo() const
 {
 	return tipo;
 }

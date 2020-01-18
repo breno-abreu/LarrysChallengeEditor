@@ -14,7 +14,7 @@ public:
 	ListaEntidades();
 	ListaEntidades(RenderWindow* _window);
 	~ListaEntidades();
-	void adicionar_entidade(int mousex, int mousey, String tipo);
+	void adicionar_entidade(int mousex, int mousey, string tipo);
 	void excluir_entidade(int mousex, int mousey);
 	void percorrer();
 	void limpar();

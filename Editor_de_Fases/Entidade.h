@@ -14,20 +14,20 @@ protected:
 	float comprimento;
 	float altura;
 	bool existe;
-	String tipo;
-	String diretorio;
+	string tipo;
+	string diretorio;
 	RenderWindow *window;
 	RectangleShape entidade;
 	Texture textura;
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, String _tipo, String _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento = 16, float _altura = 16);
+	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento = 16, float _altura = 16);
 	~Entidade();
 	void existir();
 	void desenhar_entidade();
 	void setCodigo(const int codigo);
-	void setTipo(const String tipo);
+	void setTipo(const string tipo);
 	void setxEntidade(const float xEntidade);
 	void setyEntidade(const float yEntidade);
 	void setComprimento(const float comprimento);
@@ -47,7 +47,7 @@ public:
 	int getProfundidade() const;
 	int getDirecao() const;
 	bool getExiste() const;
-	String getTipo() const;
+	string getTipo() const;
 	bool operator == (const Entidade& _entidade) const;
 	bool operator != (const Entidade& _entidade) const;
 	bool operator < (const Entidade& _entidade) const;

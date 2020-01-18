@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <list>
-#include <String>
+#include <string>
 #include <SFML/Graphics.hpp>
 
 enum {

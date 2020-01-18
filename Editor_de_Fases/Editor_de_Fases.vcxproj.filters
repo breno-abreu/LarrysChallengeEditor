@@ -33,6 +33,9 @@
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
