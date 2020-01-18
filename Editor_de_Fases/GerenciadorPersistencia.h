@@ -6,17 +6,15 @@ class GerenciadorPersistencia
 {
 private:
 	list<string> arquivos;
+	ListaEntidades* listaEntidades;
 
 public:
 	GerenciadorPersistencia();
 	~GerenciadorPersistencia();
-	void salvar(ListaEntidades listaEntidades);
-	void carregar(string arquivo);
-	void salvar_lista_arquivos();
-	void carregar_lista_arquivos();
-	void ordenarListaArquivos();
-	void adicionar_arquivo(string arquivo);
-	void excluir_arquivo(string arquivo);
-	bool pesquisar_lista_arquivos(string arquivo);
+	bool salvar(ListaEntidades* listaEntidades, string nomeArquivo);
+	ListaEntidades* carregar(string nomeArquivo, RenderWindow* _window);
+	bool excluir_arquivo(string nomeArquivo);
+	bool pesquisar_lista_arquivos(string nomeArquivo);
+	list<string> getArquivos();
 };
 

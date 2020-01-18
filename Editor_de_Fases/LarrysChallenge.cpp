@@ -22,6 +22,9 @@ LarrysChallenge::LarrysChallenge()
 
 LarrysChallenge::~LarrysChallenge()
 {
+	delete window;
+	delete gerenciadorEntidades;
+	delete gerenciadorFase;
 }
 
 void LarrysChallenge::executar()

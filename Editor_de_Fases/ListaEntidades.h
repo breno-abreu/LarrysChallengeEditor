@@ -7,7 +7,7 @@ class ListaEntidades
 {
 private:
 	GerenciadorEntidades *gerenciadorEntidades;
-	list<Entidade> listaEntidades;
+	list<Entidade*> listaEntidades;
 	int codigo;
 
 public:
@@ -19,5 +19,8 @@ public:
 	void percorrer();
 	void limpar();
 	void ordenar();
+	bool vazio();
+	list<Entidade*> getLista();
+	void setLista(list<Entidade*> lista);
 };
 

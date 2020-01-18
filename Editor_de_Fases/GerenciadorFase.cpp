@@ -3,15 +3,20 @@
 GerenciadorFase::GerenciadorFase()
 {
 	listaEntidades = NULL;
+	gerenciadorPersistencia = NULL;
 }
 
 GerenciadorFase::GerenciadorFase(RenderWindow* _window)
 {
 	listaEntidades = new ListaEntidades(_window);
+	window = _window;
+	gerenciadorPersistencia = new GerenciadorPersistencia();
 }
 
 GerenciadorFase::~GerenciadorFase()
 {
+	delete listaEntidades;
+	delete gerenciadorPersistencia;
 }
 
 void GerenciadorFase::executar_fase(int mousex, int mousey)
@@ -30,11 +35,17 @@ void GerenciadorFase::limpar_fase()
 {
 	listaEntidades->limpar();
 }
-void GerenciadorFase::salvar_fase()
+void GerenciadorFase::salvar_fase(string nomeArquivo)
 {
-
+	gerenciadorPersistencia->salvar(listaEntidades, nomeArquivo);
 }
-void GerenciadorFase::carregar_fase()
+void GerenciadorFase::carregar_fase(string nomeArquivo)
 {
+	limpar_fase();
+	listaEntidades = gerenciadorPersistencia->carregar(nomeArquivo, window);
+}
 
+void GerenciadorFase::setListaEntidades(ListaEntidades* _listaEntidades)
+{
+	listaEntidades = _listaEntidades;
 }

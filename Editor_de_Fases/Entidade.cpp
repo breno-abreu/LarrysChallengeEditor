@@ -1,12 +1,12 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento, float _altura)
+Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, float _comprimento, float _altura)
 {
 	codigo = _codigo;
 	xTile = 0;
 	yTile = 0;
 	profundidade = _profundidade;
-	direcao = _direcao;
+	direcao = 0;
 	xEntidade = _xEntidade;
 	yEntidade = _yEntidade;
 	comprimento = _comprimento;
@@ -96,6 +96,10 @@ void Entidade::setProfundidade(const int _profundidade)
 void Entidade::setDirecao(const int _direcao)
 {
 	direcao = _direcao;
+}
+void Entidade::setRenderWindow(RenderWindow* _window)
+{
+	window = _window;
 }
 int Entidade::getCodigo() const
 {

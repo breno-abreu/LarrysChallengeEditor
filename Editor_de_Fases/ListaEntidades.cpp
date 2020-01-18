@@ -16,21 +16,22 @@ ListaEntidades::ListaEntidades(RenderWindow* _window)
 ListaEntidades::~ListaEntidades()
 {
 	limpar();
+	delete gerenciadorEntidades;
 }
 
 void ListaEntidades::adicionar_entidade(int mousex, int mousey, string tipo)
 {
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex, mousey, tipo, codigo);
-	listaEntidades.push_back(*entidade);
+	listaEntidades.push_back(entidade);
 	ordenar();
 }
 void ListaEntidades::excluir_entidade(int mousex, int mousey)
 {
-	list<Entidade>::iterator itr;
+	list<Entidade*>::iterator itr;
 	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
-		if (mousex > itr->getxEntidade() && mousex < itr->getxEntidade() + itr->getComprimento()
-			&& mousey > itr->getyEntidade() && mousey < itr->getyEntidade() + itr->getAltura()) {
+		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
+			&& mousey > (*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
 			listaEntidades.erase(itr);
 			break;
 		}
@@ -38,9 +39,9 @@ void ListaEntidades::excluir_entidade(int mousex, int mousey)
 }
 void ListaEntidades::percorrer()
 {
-	list<Entidade>::iterator itr;
+	list<Entidade*>::iterator itr;
 	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
-		itr->existir();
+		(*itr)->existir();
 	}
 }
 void ListaEntidades::limpar()
@@ -51,4 +52,19 @@ void ListaEntidades::limpar()
 void ListaEntidades::ordenar()
 {
 	listaEntidades.sort();
+}
+
+bool ListaEntidades::vazio()
+{
+	return listaEntidades.empty();
+}
+
+list<Entidade*> ListaEntidades::getLista()
+{
+	return listaEntidades;
+}
+
+void ListaEntidades::setLista(list<Entidade*> lista) 
+{
+	listaEntidades = lista;
 }

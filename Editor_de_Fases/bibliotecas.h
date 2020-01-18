@@ -2,6 +2,9 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <fstream>
+#include <cstdio>
+#include <filesystem>
 #include <SFML/Graphics.hpp>
 
 enum {
@@ -17,3 +20,5 @@ enum {
 
 using namespace std;
 using namespace sf;
+namespace fs = std::experimental::filesystem;
+using namespace fs;

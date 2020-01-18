@@ -22,7 +22,7 @@ protected:
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _direcao, float _comprimento = 16, float _altura = 16);
+	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, float _comprimento = 16, float _altura = 16);
 	~Entidade();
 	void existir();
 	void desenhar_entidade();
@@ -37,6 +37,7 @@ public:
 	void setExiste(const bool existe);
 	void setProfundidade(const int profundidade);
 	void setDirecao(const int direcao);
+	void setRenderWindow(RenderWindow* _window);
 	int getCodigo() const;
 	float getxEntidade() const;
 	float getyEntidade() const;

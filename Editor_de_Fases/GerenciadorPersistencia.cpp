@@ -1,52 +1,93 @@
 #include "GerenciadorPersistencia.h"
 
-
-
 GerenciadorPersistencia::GerenciadorPersistencia()
 {
+	listaEntidades = NULL;
 }
-
 
 GerenciadorPersistencia::~GerenciadorPersistencia()
 {
+	delete listaEntidades;
 }
 
-void GerenciadorPersistencia::salvar(ListaEntidades listaEntidades)
+bool GerenciadorPersistencia::salvar(ListaEntidades *listaEntidades, string nomeArquivo)
 {
+	if (pesquisar_lista_arquivos(nomeArquivo)) {
+		ofstream arquivo("Fases/" + nomeArquivo + ".lcs");
+		list<Entidade*> lista = listaEntidades->getLista();
+		list<Entidade*>::iterator itr;
 
+		if (arquivo.is_open()) {
+			if (!listaEntidades->vazio()) {
+				for (itr = lista.begin(); itr != lista.end(); itr++) {
+					arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << endl;
+				}
+				arquivo.close();
+				return true;
+			}
+		}
+	}
+	return false;
 }
-void GerenciadorPersistencia::carregar(string arquivo)
+ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWindow* _window)
 {
+	ifstream arquivo("Fases/" + nomeArquivo + ".lcs");
+	listaEntidades = new ListaEntidades(_window);
+	string tipo = "";
+	float xEntidade = 0;
+	float yEntidade = 0;
 
-}
-void GerenciadorPersistencia::salvar_lista_arquivos()
-{
+	if (pesquisar_lista_arquivos(nomeArquivo)){
+		if (arquivo.is_open()) {
+			while (!arquivo.eof()) {
+				arquivo >> tipo >> xEntidade >> yEntidade;
 
+				if (arquivo.get() == '\n') {
+					listaEntidades->adicionar_entidade(xEntidade, yEntidade, tipo);
+				}
+			}
+			arquivo.close();
+		}
+		return listaEntidades;
+	}
+	return NULL;
 }
-void GerenciadorPersistencia::carregar_lista_arquivos()
-{
 
-}
-void GerenciadorPersistencia::ordenarListaArquivos()
+bool GerenciadorPersistencia::excluir_arquivo(string nomeArquivo)
 {
-	arquivos.sort();
+	string aux = "";
+	for (const auto& entry : directory_iterator("Fases")) {
+		aux = nomeArquivo + "lcs";
+		if (entry.path() == aux) {
+			if (remove(aux.c_str()))
+				return true;
+			else 
+				return false;
+		}
+	}
+	return false;
 }
-void GerenciadorPersistencia::adicionar_arquivo(string arquivo)
+bool GerenciadorPersistencia::pesquisar_lista_arquivos(string nomeArquivo)
 {
-
-}
-void GerenciadorPersistencia::excluir_arquivo(string arquivo)
-{
-
-}
-bool GerenciadorPersistencia::pesquisar_lista_arquivos(string arquivo)
-{
-	list<string>::iterator itr;
+	/*list<string>::iterator itr;
 
 	for (itr = arquivos.begin(); itr != arquivos.end(); itr++) {
-		if (arquivo == *itr)
+		if (nomeArquivo == *itr)
 			return true;
 	}
-
+	return false;*/
+	for (const auto& entry : directory_iterator("Fases")) {
+		if (entry.path().string() == nomeArquivo + ".lcs") {
+			return true;
+		}
+	}
 	return false;
+}
+
+list<string> GerenciadorPersistencia::getArquivos()
+{
+	for (const auto& entry : directory_iterator("Fases")) {
+		arquivos.push_front(entry.path().string());
+	}
+	return arquivos;
 }
