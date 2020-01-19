@@ -3,6 +3,7 @@
 #include "Entidade.h"
 #include "GerenciadorFase.h"
 #include "GerenciadorEntidades.h"
+#include "BotaoUI.h"
 
 class LarrysChallenge
 {

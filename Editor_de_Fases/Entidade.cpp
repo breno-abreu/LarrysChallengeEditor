@@ -1,10 +1,10 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, float _comprimento, float _altura)
+Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int _yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento, float _altura)
 {
 	codigo = _codigo;
-	xTile = 0;
-	yTile = 0;
+	xTile = _xTile;
+	yTile = _yTile;
 	profundidade = _profundidade;
 	direcao = 0;
 	xEntidade = _xEntidade;
@@ -15,10 +15,16 @@ Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float
 	tipo = _tipo;
 	diretorio = _diretorio;
 	window = _window;
+	quantidadeLinhas = _quantidadeLinhas;
+	quantidadeColunas = _quantidadeColunas;
 	entidade.setPosition(xEntidade, yEntidade);
 	entidade.setSize(Vector2f(comprimento, altura));
 	textura.loadFromFile(diretorio);
 	entidade.setTexture(&textura);
+	Vector2u tamanhoUnidade = textura.getSize();
+	comprimentoUnidade = tamanhoUnidade.x / quantidadeColunas;
+	alturaUnidade = tamanhoUnidade.y / quantidadeLinhas;
+	entidade.setTextureRect(IntRect(comprimentoUnidade * xTile, alturaUnidade * yTile, comprimentoUnidade, alturaUnidade));
 }
 
 Entidade::Entidade()
@@ -36,6 +42,8 @@ Entidade::Entidade()
 	tipo = "NULL";
 	diretorio = "NULL";
 	window = NULL;
+	quantidadeLinhas = 0;
+	quantidadeColunas = 0;
 }
 
 Entidade::~Entidade()
@@ -156,7 +164,7 @@ bool Entidade::operator != (const Entidade& _entidade) const
 	return !operator==(_entidade);
 }
 
-bool Entidade::operator < (const Entidade& _entidade) const
+/*bool Entidade::operator < (const Entidade& _entidade) const
 {
 	return profundidade < _entidade.getProfundidade();
-}
+}*/

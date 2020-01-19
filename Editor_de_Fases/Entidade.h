@@ -9,6 +9,10 @@ protected:
 	int yTile;
 	int profundidade;
 	int direcao;
+	int comprimentoUnidade;
+	int alturaUnidade;
+	int quantidadeLinhas;
+	int quantidadeColunas;
 	float xEntidade;
 	float yEntidade;
 	float comprimento;
@@ -22,7 +26,7 @@ protected:
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, float _comprimento = 16, float _altura = 16);
+	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento = 32, float _altura = 32);
 	~Entidade();
 	void existir();
 	void desenhar_entidade();
@@ -51,7 +55,7 @@ public:
 	string getTipo() const;
 	bool operator == (const Entidade& _entidade) const;
 	bool operator != (const Entidade& _entidade) const;
-	bool operator < (const Entidade& _entidade) const;
+	//bool operator < (const Entidade& _entidade) const;
 
 };
 

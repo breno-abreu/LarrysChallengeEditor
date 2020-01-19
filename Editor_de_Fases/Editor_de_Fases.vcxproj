@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\BotaoUI.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\bibliotecas.h" />
+    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\BotaoUI.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.h" />

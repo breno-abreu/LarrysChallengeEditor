@@ -12,13 +12,13 @@ public:
 	GerenciadorEntidades(RenderWindow* _window);
 	~GerenciadorEntidades();
 	Entidade* criar_entidade(int mousex, int mousey, string tipo, int codigo = -1);
-	Entidade* criar_jogador(int xEntidade, int yEntidade, int codigo);
+	/*Entidade* criar_jogador(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_cima(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_baixo(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_direita(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_esquerda(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_zumbi(int xEntidade, int yEntidade, int codigo);
-	/*Entidade* criar_esqueleto(int xEntidade, int yEntidade, int codigo);
+	Entidade* criar_esqueleto(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_interruptor(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_botao(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_bau(int xEntidade, int yEntidade, int codigo);

@@ -2,11 +2,11 @@
 
 LarrysChallenge::LarrysChallenge()
 {
-	window = new RenderWindow(VideoMode(500, 500), "Larry's Challenge Editor", Style::Close);
+	window = new RenderWindow(VideoMode(500, 500), "Larry's Challenge Editor");
 	gerenciadorFase = new GerenciadorFase(window);
 	tipoMouse = "Jogador";
 	imagemMouse = NULL;
-	tipoEntidade = "Jogador";
+	tipoEntidade = "Chao";
 	mouse = new RectangleShape(Vector2f(16.0f, 16.0f));
 	texturaMouse = new Texture();
 	texturaMouse->loadFromFile("Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png");
@@ -14,9 +14,10 @@ LarrysChallenge::LarrysChallenge()
 	gerenciadorEntidades = new GerenciadorEntidades(window);
 	gerenciadorFase->adicionar_entidade(10, 10, "Jogador");
 	gerenciadorFase->adicionar_entidade(40, 10, "Jogador");
+	gerenciadorFase->adicionar_entidade(100, 100, "Chao");
+
 	window->setMouseCursorVisible(false);
 	executar();
-	
 }
 
 
@@ -42,7 +43,7 @@ void LarrysChallenge::executar()
 		}
 		
 		acao_mouse();
-		window->clear();
+		window->clear(Color(50, 90, 80, 255));
 		desenhar_preview();
 		gerenciadorFase->executar_fase(10, 10);
 		window->display();

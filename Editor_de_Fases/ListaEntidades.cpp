@@ -51,7 +51,7 @@ void ListaEntidades::limpar()
 }
 void ListaEntidades::ordenar()
 {
-	listaEntidades.sort();
+	listaEntidades.sort([](Entidade * a, Entidade * b) {return a->getProfundidade() < b->getProfundidade(); });
 }
 
 bool ListaEntidades::vazio()
