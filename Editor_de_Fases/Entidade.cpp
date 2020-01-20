@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int _yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento, float _altura)
+Entidade::Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int _yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento, float _altura)
 {
 	codigo = _codigo;
 	xTile = _xTile;
@@ -13,15 +13,16 @@ Entidade::Entidade(RenderWindow* _window, string _tipo, string _diretorio, float
 	altura = _altura;
 	existe = true;
 	tipo = _tipo;
-	diretorio = _diretorio;
+	diretorio = "";
+	textura = _textura;
 	window = _window;
 	quantidadeLinhas = _quantidadeLinhas;
 	quantidadeColunas = _quantidadeColunas;
 	entidade.setPosition(xEntidade, yEntidade);
 	entidade.setSize(Vector2f(comprimento, altura));
-	textura.loadFromFile(diretorio);
-	entidade.setTexture(&textura);
-	Vector2u tamanhoUnidade = textura.getSize();
+	//textura->loadFromFile(diretorio);
+	entidade.setTexture(textura);
+	Vector2u tamanhoUnidade = textura->getSize();
 	comprimentoUnidade = tamanhoUnidade.x / quantidadeColunas;
 	alturaUnidade = tamanhoUnidade.y / quantidadeLinhas;
 	entidade.setTextureRect(IntRect(comprimentoUnidade * xTile, alturaUnidade * yTile, comprimentoUnidade, alturaUnidade));

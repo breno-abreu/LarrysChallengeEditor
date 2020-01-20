@@ -8,6 +8,7 @@ GerenciadorEntidades::GerenciadorEntidades()
 GerenciadorEntidades::GerenciadorEntidades(RenderWindow* _window)
 {
 	window = _window;
+	t.loadFromFile("Tiny Dungeon Pack/Tilesets/Room/Room_gray.png");
 }
 
 
@@ -17,12 +18,13 @@ GerenciadorEntidades::~GerenciadorEntidades()
 
 Entidade* GerenciadorEntidades::criar_entidade(int mousex, int mousey, string tipo, int codigo)
 {
-	string diretorio = "";
+	string diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 	int profundidade = 0;
 	int xTile = 0;
 	int yTile = 0;
 	int quantidadeLinhas = 1;
 	int quantidadeColunas = 1;
+	Texture* textura = NULL;
 
 	if (tipo == "Jogador") {
 		diretorio = "Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png";
@@ -148,6 +150,8 @@ Entidade* GerenciadorEntidades::criar_entidade(int mousex, int mousey, string ti
 	}
 	else if (tipo == "Chao") {
 		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
+		//textura->loadFromFile(diretorio);
+		textura = &t;
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
@@ -217,7 +221,7 @@ Entidade* GerenciadorEntidades::criar_entidade(int mousex, int mousey, string ti
 	else {
 		cout << "Tipo não encontrado" << endl;
 	}
-	Entidade* entidade = new Entidade(window, tipo, diretorio, mousex, mousey, codigo, profundidade, xTile, yTile, quantidadeLinhas, quantidadeColunas);
+	Entidade* entidade = new Entidade(window, tipo, textura, mousex, mousey, codigo, profundidade, xTile, yTile, quantidadeLinhas, quantidadeColunas);
 	return entidade;
 }
 

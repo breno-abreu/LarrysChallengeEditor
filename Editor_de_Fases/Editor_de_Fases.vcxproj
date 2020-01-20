@@ -133,10 +133,12 @@
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.cpp" />
+    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorMenus.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\main.cpp" />
+    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\bibliotecas.h" />
@@ -144,9 +146,11 @@
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.h" />
+    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorMenus.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.h" />
+    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

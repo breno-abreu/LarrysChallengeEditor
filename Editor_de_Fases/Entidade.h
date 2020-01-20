@@ -22,11 +22,11 @@ protected:
 	string diretorio;
 	RenderWindow *window;
 	RectangleShape entidade;
-	Texture textura;
+	Texture *textura;
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, string _tipo, string _diretorio, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento = 32, float _altura = 32);
+	Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento = 32, float _altura = 32);
 	~Entidade();
 	void existir();
 	void desenhar_entidade();

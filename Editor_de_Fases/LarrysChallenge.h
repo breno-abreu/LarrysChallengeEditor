@@ -16,6 +16,24 @@ private:
 	GerenciadorEntidades* gerenciadorEntidades;
 	RectangleShape* mouse;
 	Texture* texturaMouse;
+	Vector2i mousePos;
+	View *view;
+	const float VIEW_HEIGHT;
+	const float	VIEW_WITDH;
+	float aspectRatio;
+
+	Clock clock;
+
+	RectangleShape* entidade;
+	bool magnetico;
+	int xMouse;
+	int yMouse;
+
+	bool mouseLeft;
+
+	float auxVertical;
+	float auxHorizontal;
+	float vel;
 
 public:
 	LarrysChallenge();

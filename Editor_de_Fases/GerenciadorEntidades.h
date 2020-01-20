@@ -6,6 +6,7 @@ class GerenciadorEntidades
 {
 private:
 	RenderWindow* window;
+	Texture t;
 
 public:
 	GerenciadorEntidades();
