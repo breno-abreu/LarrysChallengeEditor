@@ -20,13 +20,13 @@ GerenciadorFase::~GerenciadorFase()
 	delete gerenciadorPersistencia;
 }
 
-void GerenciadorFase::executar_fase(int mousex, int mousey)
+void GerenciadorFase::executar_fase(int mousex, int mousey, int viewx, int viewy)
 {
-	listaEntidades->percorrer();
+	listaEntidades->percorrer(viewx, viewy);
 }
-void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, const int tipo)
+void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, const int tipo, int viewx, int viewy)
 {
-	listaEntidades->adicionar_entidade(mousex, mousey, tipo);
+	listaEntidades->adicionar_entidade(mousex, mousey, tipo, viewx, viewy);
 }
 void GerenciadorFase::excluir_entidade(int mousex, int mousey)
 {

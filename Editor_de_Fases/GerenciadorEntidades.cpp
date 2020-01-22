@@ -447,7 +447,7 @@ Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mouse
 		cout << "Tipo não encontrado" << endl;
 		return NULL;
 	}
-	Entidade* entidade = new Entidade(window, nome, textura, mousex, mousey, codigo, profundidade, xTile, yTile, quantidadeLinhas, quantidadeColunas);
+	Entidade* entidade = new Entidade(window, nome, textura, mousex, mousey, codigo, profundidade, xTile, yTile, quantidadeLinhas, quantidadeColunas, tipo);
 	return entidade;
 }
 

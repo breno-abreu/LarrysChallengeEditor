@@ -18,6 +18,7 @@ Menu::Menu(RenderWindow* _window)
 	origemyBackground = 0;
 	window = _window;
 	xBackground = 1200;
+	acao = 1;
 	yBackground = 0;
 	listaEntidades = new ListaEntidades(_window);
 	background = new RectangleShape();
@@ -60,13 +61,13 @@ int Menu::getAcao() const
 
 void Menu::criar_botoes()
 {
-	Botao* novo = new Botao(window, 1425, 25, "Novo", 25, NOVO);
+	Botao* novo = new Botao(window, 1225, 25, "Novo", 25, NOVO);
 	listaBotoes.push_back(novo);
 
-	Botao* carregar = new Botao(window, 1500, 25, "Carregar", 10, CARREGAR);
+	Botao* carregar = new Botao(window, 1350, 25, "Carregar", 10, CARREGAR);
 	listaBotoes.push_back(carregar);
 
-	Botao* salvar = new Botao(window, 1550, 25, "Salvar", 22, SALVAR);
+	Botao* salvar = new Botao(window, 1475, 25, "Salvar", 22, SALVAR);
 	listaBotoes.push_back(salvar);
 }
 
@@ -78,23 +79,30 @@ void Menu::verificar_botoes(const int mousex, const int mousey)
 			mousey > (*itr)->getyBotao() && mousey < (*itr)->getyBotao() + (*itr)->getAltura())
 			cout << (*itr)->getTipo() << endl;
 	}
-
 }
+void Menu::verificar_botoes_entidade(const int mousex, const int mousey)
+{
+	int aux = listaEntidades->verificar_entidades_menu(mousex, mousey);
+	if (aux != 0)
+		acao = aux;
+}
+
 void Menu::criar_botoes_entidades()
 {
-	int cx = 0;
-	int cy = 50;
+	int cx = 1225;
+	int cy = 100;
 	int cont = 0;
+	int distanciaPadrao = 75;
 
 	for (int i = 1; i <= 46; i++) {
 		listaEntidades->adicionar_entidade(cx, cy, i);
-		cx += 40;
+		cx += distanciaPadrao;
 		cont++;
 
 		if (cont == 5) {
 			cont = 0;
-			cy += 40;
-			cx = 0;
+			cy += distanciaPadrao;
+			cx = 1225;
 		}
 	}
 }

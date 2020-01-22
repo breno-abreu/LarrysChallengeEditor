@@ -18,7 +18,7 @@ Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distan
 	distanciaxTexto = _distanciaxTexto;
 	botao = new RectangleShape();
 	botao->setSize(Vector2f(comprimento, altura));
-	botao->setPosition(0, 0);
+	botao->setPosition(distanciax, distanciay);
 	botao->setFillColor(Color::Color(200, 200, 200, 255));
 	botao->setOutlineColor(Color::Black);
 	botao->setOutlineThickness(1);
@@ -31,7 +31,7 @@ Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distan
 	texto->setString(_texto);
 	texto->setCharacterSize(20);
 	texto->setFillColor(Color::Black);
-	texto->setPosition(xBotao, yBotao);
+	texto->setPosition(distanciax + distanciaxTexto, distanciay);
 	tipo = _tipo;
 }
 Botao::~Botao()
@@ -48,8 +48,8 @@ void Botao::desenhar_botao(const float _xBotao, const float _yBotao)
 	window->draw(*texto);
 	//texto->setPosition(_xBotao + distanciax + distanciaxTexto, _yBotao + distanciay + 3);
 
-	xBotao = botao->getPosition().x;
-	yBotao = botao->getPosition().y;
+	/*xBotao = botao->getPosition().x;
+	yBotao = botao->getPosition().y;*/
 }
 void Botao::desativar()
 {

@@ -28,5 +28,7 @@ public:
 	void criar_botoes();
 	void verificar_botoes(const int mousex, const int mousey);
 	void criar_botoes_entidades();
+	void verificar_botoes_entidade(const int mousex, const int mousey);
+
 };
 

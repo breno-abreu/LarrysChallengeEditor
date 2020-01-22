@@ -87,12 +87,12 @@ void LarrysChallenge::executar()
 		xMouse = mousePos.x;
 		yMouse = mousePos.y;
 
-
+		cout << tipoEntidade << endl;
 		acao_mouse();
 		window->clear(Color(50, 90, 80, 255));
 		window->setView(*view);
 		view->setCenter(Vector2f(auxHorizontal, auxVertical));
-		gerenciadorFase->executar_fase(xMouse, yMouse);
+		gerenciadorFase->executar_fase(xMouse, yMouse, auxHorizontal, auxVertical);
 		view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
 		menu->executar(auxHorizontal, auxVertical);
 		desenhar_preview();
@@ -119,8 +119,10 @@ void LarrysChallenge::mudar_imagem_mouse()
 void LarrysChallenge::acao_mouse()
 {
 	if (Mouse::isButtonPressed(Mouse::Left) && mouseLeft == false) {
-			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade);
+			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical);
 			menu->verificar_botoes(xMouse, yMouse);
+			menu->verificar_botoes_entidade(xMouse, yMouse);
+			tipoEntidade = menu->getAcao();
 			mouseLeft = true;
 	}
 	if (Mouse::isButtonPressed(Mouse::Right)) {

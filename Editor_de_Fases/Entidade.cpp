@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int _yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento, float _altura)
+Entidade::Entidade(RenderWindow* _window, string _nome, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int _yTile, int _quantidadeLinhas, int _quantidadeColunas, int _tipo, float _comprimento, float _altura)
 {
 	codigo = _codigo;
 	xTile = _xTile;
@@ -13,6 +13,9 @@ Entidade::Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float
 	altura = _altura;
 	existe = true;
 	tipo = _tipo;
+	nome = _nome;
+	cx = 0;
+	cy = 0;
 	diretorio = "";
 	textura = _textura;
 	window = _window;
@@ -40,7 +43,7 @@ Entidade::Entidade()
 	comprimento = 0;
 	altura = 0;
 	existe = true;
-	tipo = "NULL";
+	tipo = 0;
 	diretorio = "NULL";
 	window = NULL;
 	quantidadeLinhas = 0;
@@ -52,16 +55,20 @@ Entidade::~Entidade()
 
 }
 
-void Entidade::existir()
+void Entidade::existir(int viewx, int viewy)
 {
+	entidade.setPosition(viewx + xEntidade, viewy + yEntidade);
 	desenhar_entidade();
-	entidade.setPosition(xEntidade, yEntidade);
+	
+	//cx = entidade.getPosition().x;
+	//cy = entidade.getPosition().y;
+
 }
 
 void  Entidade::existir_menu(const float xView, const float yView)
 {
-	xEntidade = xView;
-	yEntidade = yView;
+	//xEntidade = xView;
+	//yEntidade = yView;
 	desenhar_entidade();
 }
 
@@ -74,7 +81,7 @@ void Entidade::setCodigo(const int _codigo)
 {
 	codigo = _codigo;
 }
-void Entidade::setTipo(const string _tipo)
+void Entidade::setTipo(const int _tipo)
 {
 	tipo = _tipo;
 }
@@ -127,7 +134,7 @@ int Entidade::getCodigo() const
 {
 	return codigo;
 }
-string Entidade::getTipo() const
+int Entidade::getTipo() const
 {
 	return tipo;
 }

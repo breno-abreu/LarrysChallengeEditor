@@ -13,12 +13,15 @@ protected:
 	int alturaUnidade;
 	int quantidadeLinhas;
 	int quantidadeColunas;
+	int tipo;
 	float xEntidade;
 	float yEntidade;
 	float comprimento;
 	float altura;
+	float cx;
+	float cy;
 	bool existe;
-	string tipo;
+	string nome;
 	string diretorio;
 	RenderWindow *window;
 	RectangleShape entidade;
@@ -26,13 +29,13 @@ protected:
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento = 32, float _altura = 32);
+	Entidade(RenderWindow* _window, string _nome, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, int _tipo, float _comprimento = 48, float _altura = 48);
 	~Entidade();
-	void existir();
+	void existir(int viewx, int viewy);
 	void existir_menu(const float xView, const float yView);
 	void desenhar_entidade();
 	void setCodigo(const int codigo);
-	void setTipo(const string tipo);
+	void setTipo(const int _nome);
 	void setxEntidade(const float xEntidade);
 	void setyEntidade(const float yEntidade);
 	void setComprimento(const float comprimento);
@@ -54,7 +57,7 @@ public:
 	int getProfundidade() const;
 	int getDirecao() const;
 	bool getExiste() const;
-	string getTipo() const;
+	int getTipo() const;
 	bool operator == (const Entidade& _entidade) const;
 	bool operator != (const Entidade& _entidade) const;
 	//bool operator < (const Entidade& _entidade) const;

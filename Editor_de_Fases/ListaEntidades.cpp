@@ -19,10 +19,10 @@ ListaEntidades::~ListaEntidades()
 	delete gerenciadorEntidades;
 }
 
-void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo)
+void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, int viewx, int viewy)
 {
 	codigo++;
-	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex, mousey, tipo, codigo);
+	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo);
 	listaEntidades.push_back(entidade);
 	ordenar();
 }
@@ -37,11 +37,11 @@ void ListaEntidades::excluir_entidade(int mousex, int mousey)
 		}
 	}
 }
-void ListaEntidades::percorrer()
+void ListaEntidades::percorrer(int viewx, int viewy)
 {
 	list<Entidade*>::iterator itr;
 	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
-		(*itr)->existir();
+		(*itr)->existir(viewx, viewy);
 	}
 }
 void ListaEntidades::percorrer_menu(const float xView, const float yView)
@@ -74,4 +74,16 @@ list<Entidade*> ListaEntidades::getLista()
 void ListaEntidades::setLista(list<Entidade*> lista) 
 {
 	listaEntidades = lista;
+}
+
+int ListaEntidades::verificar_entidades_menu(const int mousex, const int mousey)
+{
+	list<Entidade*>::iterator itr;
+	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++){
+		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
+			&& mousey >(*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
+			return (*itr)->getTipo();
+		}
+	}
+	return NULL;
 }
