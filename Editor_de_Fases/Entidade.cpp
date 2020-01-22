@@ -55,6 +55,7 @@ Entidade::~Entidade()
 void Entidade::existir()
 {
 	desenhar_entidade();
+	entidade.setPosition(xEntidade, yEntidade);
 }
 
 void  Entidade::existir_menu(const float xView, const float yView)

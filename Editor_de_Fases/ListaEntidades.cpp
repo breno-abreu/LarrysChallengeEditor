@@ -19,7 +19,7 @@ ListaEntidades::~ListaEntidades()
 	delete gerenciadorEntidades;
 }
 
-void ListaEntidades::adicionar_entidade(int mousex, int mousey, string tipo)
+void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo)
 {
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex, mousey, tipo, codigo);

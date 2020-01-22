@@ -9,10 +9,10 @@ class LarrysChallenge
 {
 private:
 	GerenciadorFase *gerenciadorFase;
-	string tipoMouse;
+	int tipoMouse;
 	RenderWindow *window;
 	Entidade* imagemMouse;
-	string tipoEntidade;
+	int tipoEntidade;
 	GerenciadorEntidades* gerenciadorEntidades;
 	RectangleShape* mouse;
 	Texture* texturaMouse;

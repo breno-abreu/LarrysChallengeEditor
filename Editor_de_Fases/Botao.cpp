@@ -44,9 +44,9 @@ Botao::~Botao()
 void Botao::desenhar_botao(const float _xBotao, const float _yBotao)
 {
 	window->draw(*botao);
-	botao->setPosition(_xBotao + distanciax, _yBotao + distanciay);
+	//botao->setPosition(_xBotao + distanciax, _yBotao + distanciay);
 	window->draw(*texto);
-	texto->setPosition(_xBotao + distanciax + distanciaxTexto, _yBotao + distanciay + 3);
+	//texto->setPosition(_xBotao + distanciax + distanciaxTexto, _yBotao + distanciay + 3);
 
 	xBotao = botao->getPosition().x;
 	yBotao = botao->getPosition().y;

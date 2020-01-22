@@ -6,18 +6,18 @@ LarrysChallenge::LarrysChallenge():
 {
 	window = new RenderWindow(VideoMode(1600, 900), "Larry's Challenge Editor", Style::Close | Style::Resize);
 	gerenciadorFase = new GerenciadorFase(window);
-	tipoMouse = "Jogador";
+	tipoMouse = 1;
 	imagemMouse = NULL;
-	tipoEntidade = "Chao";
+	tipoEntidade = 1;
 	mouse = new RectangleShape(Vector2f(16.0f, 16.0f));
 	mouse->setFillColor(Color::Blue);
 	//texturaMouse = new Texture();
 	//texturaMouse->loadFromFile("Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png");
 	mouse->setTexture(texturaMouse);
 	gerenciadorEntidades = new GerenciadorEntidades(window);
-	gerenciadorFase->adicionar_entidade(100, 100, "Chao");
+	/*gerenciadorFase->adicionar_entidade(100, 100, "Chao");
 	gerenciadorFase->adicionar_entidade(100, 150, "Chao");
-	gerenciadorFase->adicionar_entidade(100, 150, "Chao");
+	gerenciadorFase->adicionar_entidade(100, 150, "Chao");*/
 	magnetico = true;
 	xMouse = 0;
 	yMouse = 0;
@@ -67,16 +67,16 @@ void LarrysChallenge::executar()
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Key::Right)) {
-			auxHorizontal += vel;
-		}
-		if (Keyboard::isKeyPressed(Keyboard::Key::Left)) {
 			auxHorizontal -= vel;
 		}
+		if (Keyboard::isKeyPressed(Keyboard::Key::Left)) {
+			auxHorizontal += vel;
+		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::Up)) {
-			auxVertical -= vel;
+			auxVertical += vel;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Key::Down)) {
-			auxVertical += vel;
+			auxVertical -= vel;
 		}
 		
 		Time time = clock.getElapsedTime();

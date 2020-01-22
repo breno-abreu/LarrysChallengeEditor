@@ -14,7 +14,7 @@ public:
 	ListaEntidades();
 	ListaEntidades(RenderWindow* _window);
 	~ListaEntidades();
-	void adicionar_entidade(const int mousex, const int mousey, const string tipo);
+	void adicionar_entidade(const int mousex, const int mousey, const int tipo);
 	void excluir_entidade(const int mousex, const int mousey);
 	void percorrer();
 	void percorrer_menu(const float xView, const float yView);

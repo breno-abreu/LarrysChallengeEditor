@@ -12,7 +12,7 @@ public:
 	GerenciadorEntidades();
 	GerenciadorEntidades(RenderWindow* _window);
 	~GerenciadorEntidades();
-	Entidade* criar_entidade(int mousex, int mousey, string tipo, int codigo = -1);
+	Entidade* criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo = -1);
 	/*Entidade* criar_jogador(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_cima(int xEntidade, int yEntidade, int codigo);
 	Entidade* criar_rato_baixo(int xEntidade, int yEntidade, int codigo);

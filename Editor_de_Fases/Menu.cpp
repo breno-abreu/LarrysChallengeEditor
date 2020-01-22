@@ -17,12 +17,15 @@ Menu::Menu(RenderWindow* _window)
 	origemxBackground = 1200;
 	origemyBackground = 0;
 	window = _window;
+	xBackground = 1200;
+	yBackground = 0;
 	listaEntidades = new ListaEntidades(_window);
 	background = new RectangleShape();
 	background->setSize(Vector2f(400, 900));
 	background->setPosition(origemxBackground, origemyBackground);
 	background->setFillColor(Color::Color(160, 160, 160, 255));
 	criar_botoes();
+	criar_botoes_entidades();
 }
 void Menu::executar_botoes(const float xView, const float yView)
 {
@@ -44,7 +47,7 @@ void Menu::executar(const float xView, const float yView)
 void Menu::executar_background(const float xView, const float yView)
 {
 	window->draw(*background);
-	background->setPosition(origemxBackground + xView, origemyBackground + yView);
+	//background->setPosition(xView, yView);
 }
 void Menu::setAcao(const int _acao)
 {
@@ -76,5 +79,23 @@ void Menu::verificar_botoes(const int mousex, const int mousey)
 			cout << (*itr)->getTipo() << endl;
 	}
 
+}
+void Menu::criar_botoes_entidades()
+{
+	int cx = 0;
+	int cy = 50;
+	int cont = 0;
+
+	for (int i = 1; i <= 46; i++) {
+		listaEntidades->adicionar_entidade(cx, cy, i);
+		cx += 40;
+		cont++;
+
+		if (cont == 5) {
+			cont = 0;
+			cy += 40;
+			cx = 0;
+		}
+	}
 }
 

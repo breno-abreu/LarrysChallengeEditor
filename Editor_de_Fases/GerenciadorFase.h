@@ -15,7 +15,7 @@ public:
 	GerenciadorFase(RenderWindow* _window);
 	~GerenciadorFase();
 	void executar_fase(int mousex, int mousey);
-	void adicionar_entidade(int mousex, int mousey, string tipo);
+	void adicionar_entidade(const int mousex, const int mousey, const int tipo);
 	void excluir_entidade(int mousex, int mousey);
 	void limpar_fase();
 	void salvar_fase(string nomeArquivo);

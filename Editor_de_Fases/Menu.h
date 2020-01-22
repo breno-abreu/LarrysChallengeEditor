@@ -12,6 +12,8 @@ private:
 	RenderWindow* window;
 	float origemxBackground;
 	float origemyBackground;
+	float xBackground;
+	float yBackground;
 
 public:
 	Menu();
@@ -25,5 +27,6 @@ public:
 	int getAcao() const;
 	void criar_botoes();
 	void verificar_botoes(const int mousex, const int mousey);
+	void criar_botoes_entidades();
 };
 

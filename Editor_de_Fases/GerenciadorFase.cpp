@@ -24,7 +24,7 @@ void GerenciadorFase::executar_fase(int mousex, int mousey)
 {
 	listaEntidades->percorrer();
 }
-void GerenciadorFase::adicionar_entidade(int mousex, int mousey, string tipo)
+void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, const int tipo)
 {
 	listaEntidades->adicionar_entidade(mousex, mousey, tipo);
 }

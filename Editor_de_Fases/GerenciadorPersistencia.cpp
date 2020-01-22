@@ -33,7 +33,7 @@ ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWind
 {
 	ifstream arquivo("Fases/" + nomeArquivo + ".lcs");
 	listaEntidades = new ListaEntidades(_window);
-	string tipo = "";
+	int tipo = 1;
 	float xEntidade = 0;
 	float yEntidade = 0;
 
