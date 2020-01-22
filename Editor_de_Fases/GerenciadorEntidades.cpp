@@ -8,7 +8,57 @@ GerenciadorEntidades::GerenciadorEntidades()
 GerenciadorEntidades::GerenciadorEntidades(RenderWindow* _window)
 {
 	window = _window;
-	t.loadFromFile("Tiny Dungeon Pack/Tilesets/Room/Room_gray.png");
+	a.loadFromFile("Textures/Bau.png");
+	b.loadFromFile("Textures/Blue_orb.png");
+	c.loadFromFile("Textures/Blue_Wall_up.png");
+	d.loadFromFile("Textures/Caixa.png");
+	e.loadFromFile("Textures/Caixa_Pesada.png");
+	f.loadFromFile("Textures/Chao.png");
+	g.loadFromFile("Textures/Chave.png");
+	h.loadFromFile("Textures/Coin.png");
+	i.loadFromFile("Textures/Coluna_Horizontal.png");
+	j.loadFromFile("Textures/Coluna_Vertical.png");
+	k.loadFromFile("Textures/Coluna_Vertical2.png");
+	l.loadFromFile("Textures/Floor_push_down.png");
+	m.loadFromFile("Textures/Floor_push_left.png");
+	n.loadFromFile("Textures/Floor_push_right.png");
+	o.loadFromFile("Textures/Floor_push_up.png");
+	p.loadFromFile("Textures/Green_orb.png");
+	q.loadFromFile("Textures/Jogador.png");
+	r.loadFromFile("Textures/Parede.png");
+	s.loadFromFile("Textures/Passagem.png");
+	t.loadFromFile("Textures/Pit00.png");
+	u.loadFromFile("Textures/Pit01.png");
+	v.loadFromFile("Textures/Pit02.png");
+	w.loadFromFile("Textures/Pit03.png");
+	x.loadFromFile("Textures/Pit04.png");
+	y.loadFromFile("Textures/Pit05.png");
+	z.loadFromFile("Textures/Pit06.png");
+	aa.loadFromFile("Textures/Pit07.png");
+	ab.loadFromFile("Textures/Pit08.png");
+	ac.loadFromFile("Textures/Pit09.png");
+	ad.loadFromFile("Textures/Porta.png");
+	ae.loadFromFile("Textures/Porta_Aberta.png");
+	af.loadFromFile("Textures/Porta_Vertical.png");
+	ag.loadFromFile("Textures/Rat_down.png");
+	ah.loadFromFile("Textures/Rat_left.png");
+	ai.loadFromFile("Textures/Rat_right.png");
+	aj.loadFromFile("Textures/Rat_up.png");
+	ak.loadFromFile("Textures/Red_orb.png");
+	al.loadFromFile("Textures/Rock2.png");
+	am.loadFromFile("Textures/Shooting_trap_down.png");
+	an.loadFromFile("Textures/Shooting_trap_left.png");
+	ao.loadFromFile("Textures/Shooting_trap_right.png");
+	ap.loadFromFile("Textures/Shooting_trap_up.png");
+	aq.loadFromFile("Textures/Skel.png");
+	ar.loadFromFile("Textures/Spike_trap.png");
+	as.loadFromFile("Textures/Stairs_down.png");
+	at.loadFromFile("Textures/Switch_press.png");
+	au.loadFromFile("Textures/Topo_Coluna_Direita.png");
+	av.loadFromFile("Textures/Topo_Coluna_Esquerda.png");
+	aw.loadFromFile("Textures/Switch_blue_orange.png");
+	ax.loadFromFile("Textures/Torch.png");
+	ay.loadFromFile("Textures/Zombie.png");
 }
 
 
@@ -18,430 +68,428 @@ GerenciadorEntidades::~GerenciadorEntidades()
 
 Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo)
 {
-	string diretorio = "";
 	int profundidade = BACKGROUND;
 	int xTile = 0;
 	int yTile = 0;
 	int quantidadeLinhas = 1;
 	int quantidadeColunas = 1;
-	Texture* textura = &t;
+	Texture* textura = NULL;
 	string nome = "";
-
 
 	if (tipo == 1) {
 		nome = "Jogador";
-		diretorio = "Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeLinhas = 1;
 		quantidadeColunas = 4;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 2){
 		nome = "Rato Cima";
-		diretorio = "Tiny Dungeon Pack/Enemies/Rat/Rat_up.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 3) {
 		nome = "Rato Baixo";
-		diretorio = "Tiny Dungeon Pack/Enemies/Rat/Rat_down.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 4) {
 		nome = "Rato Direita";
-		diretorio = "Tiny Dungeon Pack/Enemies/Rat/Rat_right.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 5) {
 		nome = "Rato Esquerda";
-		diretorio = "Tiny Dungeon Pack/Enemies/Rat/Rat_left.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 6) {
 		nome = "Zumbi";
-		diretorio = "Tiny Dungeon Pack/Enemies/Zombie/Idle/Zombie_idle_down.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 7) {
 		nome = "Esqueleto";
-		diretorio = "Tiny Dungeon Pack/Enemies/Skeleton/Skel_4Sides.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 4;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 8) {
 		nome = "Interruptor";
-		diretorio = "Tiny Dungeon Pack/Misc/Switches/Switch_blue_orange.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 9) {
 		nome = "Botao";
-		diretorio = "Tiny Dungeon Pack/Misc/Switches/Switch_press.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 2;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 10) {
 		nome = "Bau";
-		diretorio = "Tiny Dungeon Pack/Misc/Big_treasure_chest.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 11) {
 		nome = "Caixa Leve";
-		diretorio = "Tiny Dungeon Pack/Misc/Box.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 12) {
 		nome = "Caixa Pesada";
-		diretorio = "Tiny Dungeon Pack/Misc/Box_heavy.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 13) {
 		nome = "Chave Prateada";
-		diretorio = "Tiny Dungeon Pack/Misc/Golden_key.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
-		yTile = 0;
+		yTile = 0; 
+		textura = &a;
 	}
 	else if (tipo == 14) {
 		nome = "Chave Dourada";
-		diretorio = "Tiny Dungeon Pack/Misc/Golden_key.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 15) {
 		nome = "Escada";
-		diretorio = "Tiny Dungeon Pack/Misc/Stairs_down.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 16) {
 		nome = "Tocha";
-		diretorio = "Tiny Dungeon Pack/Misc/Torch.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 17) {
 		nome = "Moeda";
-		diretorio = "Tiny Dungeon Pack/Misc/Coin.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 18) {
 		nome = "Pocao Vermelha";
-		diretorio = "Tiny Dungeon Pack/Misc/Red_orb.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 19) {
 		nome = "Pocao Azul";
-		diretorio = "Tiny Dungeon Pack/Misc/Blue_orb.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 20) {
 		nome = "Atirador Cima";
-		diretorio = "Tiny Dungeon Pack/Traps/Shooting_trap/Shooting_trap_up.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 21) {
 		nome = "Atirador Baixo";
-		diretorio = "Tiny Dungeon Pack/Traps/Shooting_trap/Shooting_trap_down.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 22) {
 		nome = "Atirador Direita";
-		diretorio = "Tiny Dungeon Pack/Traps/Shooting_trap/Shooting_trap_right.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 23) {
 		nome = "Atirador Esquerda";
-		diretorio = "Tiny Dungeon Pack/Traps/Shooting_trap/Shooting_trap_left.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 24) {
 		nome = "Bloco Invisivel";
-		diretorio = "Tiny Dungeon Pack/Misc/Rock.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 1;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 25) {
 		nome = "Bloco Armadilha";
-		diretorio = "Tiny Dungeon Pack/Traps/Color_Wall/Blue_wall_up.png";
 		profundidade = MIDDLEGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 26) {
 		nome = "Porta Horizontal";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = FOREGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 27) {
 		nome = "Porta Vertical";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = FOREGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 28) {
 		nome = "Coluna Horizontal";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = FOREGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 29) {
 		nome = "Coluna Vertical";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = FOREGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 30) {
 		nome = "Espinhos";
-		diretorio = "Tiny Dungeon Pack/Traps/Spike_trap";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 7;
 		quantidadeLinhas = 1;
 		xTile = 0;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 31) {
 		nome = "Chao";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		textura = &t;
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 32) {
 		nome = "Parede Cima";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 33) {
 		nome = "Parede Baixo";
-		diretorio = "Tiny Dungeon Pack/Tilesets/Room/Room_gray.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 34) {
 		nome = "Abismo";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 35) {
 		nome = "Abismo Cima";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 2;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 36) {
 		nome = "Abismo Baixo";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 2;
 		yTile = 2;
+		textura = &a;
 	}
 	else if (tipo == 37) {
 		nome = "Abismo Direita";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 3;
 		yTile = 1;
+		textura = &a;
 	}
 	else if (tipo == 38) {
 		nome = "Abismo Esquerda";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 1;
 		yTile = 1;
+		textura = &a;
 	}
 	else if (tipo == 39) {
 		nome = "Abismo Cotovelo Cima Esquerda";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 40) {
 		nome = "Abismo Cotovelo Cima Direita";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 3;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 41) {
 		nome = "Abismo Cotovelo Baixo Esquerda";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 1;
 		yTile = 2;
+		textura = &a;
 	}
 	else if (tipo == 42) {
 		nome = "Abismo Cotovelo Baixo Direita";
-		diretorio = "Tiny Dungeon Pack/Tilesets/pit.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 6;
 		quantidadeLinhas = 3;
 		xTile = 3;
 		yTile = 2;
+		textura = &a;
 	}
 	else if (tipo == 43) {
 		nome = "Movimentador Cima";
-		diretorio = "Tiny Dungeon Pack/Traps/Pushing_floor/Floor_push_up.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 44) {
 		nome = "Movimentador Baixo";
-		diretorio = "Tiny Dungeon Pack/Traps/Pushing_floor/Floor_push_down.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 45) {
 		nome = "Movimentador Esquerda";
-		diretorio = "Tiny Dungeon Pack/Traps/Pushing_floor/Floor_push_left.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else if (tipo == 46) {
 		nome = "Movimentador Direita";
-		diretorio = "Tiny Dungeon Pack/Traps/Pushing_floor/Floor_push_right.png";
 		profundidade = BACKGROUND;
 		quantidadeColunas = 13;
 		quantidadeLinhas = 10;
 		xTile = 1;
 		yTile = 0;
+		textura = &a;
 	}
 	else {
 		cout << "Tipo não encontrado" << endl;

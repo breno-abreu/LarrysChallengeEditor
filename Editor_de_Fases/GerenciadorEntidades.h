@@ -6,58 +6,76 @@ class GerenciadorEntidades
 {
 private:
 	RenderWindow* window;
+	Texture a;
+	Texture b;
+	Texture c;
+	Texture d;
+	Texture e;
+	Texture f;
+	Texture g;
+	Texture h;
+	Texture i;
+	Texture j;
+	Texture k;
+	Texture l;
+	Texture m;
+	Texture n;
+	Texture o;
+	Texture p;
+	Texture q;
+	Texture r;
+	Texture s;
 	Texture t;
+	Texture u;
+	Texture v;
+	Texture w;
+	Texture x;
+	Texture y;
+	Texture z;
+	Texture aa;
+	Texture ab;
+	Texture ac;
+	Texture ad;
+	Texture ae;
+	Texture af;
+	Texture ag;
+	Texture ah;
+	Texture ai;
+	Texture aj;
+	Texture ak;
+	Texture al;
+	Texture am;
+	Texture an;
+	Texture ao;
+	Texture ap;
+	Texture aq;
+	Texture ar;
+	Texture as;
+	Texture at;
+	Texture au;
+	Texture av;
+	Texture aw;
+	Texture ax;
+	Texture ay;
+
+	int profundidade[51] = {1, 1, 1, 1, 1, 0, 1, 1, 2, 2, 
+							2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 
+							0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+							2, 2, 1, 1, 1, 1, 1, 1, 1, 1,
+							1, 1, 1, 0, 0, 1, 2, 2, 1, 1,
+							1};
+
+	Texture* texturas[51] = { &a, &b, &c, &d, &e, &f, &g, &h, &i, &j, 
+							  &k, &l, &m, &n, &o, &p, &q, &r, &s, &t, 
+							  &u, &v, &w, &x, &y, &z, &aa, &ab, &ac, &ad,
+							  &ae, &af, &ag, &ah, &ai, &aj, &ak, &al, &am, &an,
+							  &ao, &ap, &aq, &ar, &as, &at, &au, &av, &aw, &ax,
+							  &ay };
 
 public:
 	GerenciadorEntidades();
 	GerenciadorEntidades(RenderWindow* _window);
 	~GerenciadorEntidades();
 	Entidade* criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo = -1);
-	/*Entidade* criar_jogador(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_rato_cima(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_rato_baixo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_rato_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_rato_esquerda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_zumbi(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_esqueleto(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_interruptor(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_botao(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_bau(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_caixa_leve(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_caixa_pesada(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_chave_prateada(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_chave_dourada(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_escada(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_tocha(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_moeda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_pocao_vermelha(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_pocao_azul(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_atirador_cima(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_atirador_baixo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_atirador_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_atirador_esquerda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_bloco_invisível(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_bloco_armadilha(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_porta_horizontal(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_porta_vertical(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_coluna_horizontal(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_coluna_vertical(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_espinhos(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_chao(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_parede_cima(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_parede_baixo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_cima(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_baixo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_esquerda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_cotovelo_cima_esquerda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_cotovelo_cima_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_cotovelo_baixo_esquerda(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_abismo_cotovelo_baixo_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_movimentador_cima(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_movimentador_baixo(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_movimentador_direita(int xEntidade, int yEntidade, int codigo);
-	Entidade* criar_movimentador_esquerda(int xEntidade, int yEntidade, int codigo);*/
 };
 
