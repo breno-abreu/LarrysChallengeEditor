@@ -76,12 +76,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\breno\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Breno Abreu\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\breno\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Breno Abreu\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-window-d.lib;%(AdditionalDependencies);sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -103,14 +104,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\breno\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Breno Abreu\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\breno\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Breno Abreu\Downloads\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib;sfml-window.lib;%(AdditionalDependencies);sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;sfml-network.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,28 +131,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\BotaoUI.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.cpp" />
-    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorMenus.cpp" />
-    <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\main.cpp" />
     <ClCompile Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Menu.cpp" />
+    <ClCompile Include="Botao.cpp" />
+    <ClCompile Include="GerenciadorPersistencia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\bibliotecas.h" />
-    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\BotaoUI.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Entidade.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorEntidades.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorFase.h" />
-    <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorMenus.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\GerenciadorPersistencia.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\ListaEntidades.h" />
     <ClInclude Include="..\..\..\..\Projeto Larry%27s Challenge\Larry%27s Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\Menu.h" />
+    <ClInclude Include="Botao.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

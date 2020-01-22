@@ -29,6 +29,7 @@ public:
 	Entidade(RenderWindow* _window, string _tipo, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, float _comprimento = 32, float _altura = 32);
 	~Entidade();
 	void existir();
+	void existir_menu(const float xView, const float yView);
 	void desenhar_entidade();
 	void setCodigo(const int codigo);
 	void setTipo(const string tipo);
@@ -42,6 +43,7 @@ public:
 	void setProfundidade(const int profundidade);
 	void setDirecao(const int direcao);
 	void setRenderWindow(RenderWindow* _window);
+	void setCoordenadas(const float _xEntidade, const float _yEntidade);
 	int getCodigo() const;
 	float getxEntidade() const;
 	float getyEntidade() const;

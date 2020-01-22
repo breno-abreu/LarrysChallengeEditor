@@ -44,6 +44,13 @@ void ListaEntidades::percorrer()
 		(*itr)->existir();
 	}
 }
+void ListaEntidades::percorrer_menu(const float xView, const float yView)
+{
+	list<Entidade*>::iterator itr;
+	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
+		(*itr)->existir_menu(xView, yView);
+	}
+}
 void ListaEntidades::limpar()
 {
 	listaEntidades.clear();

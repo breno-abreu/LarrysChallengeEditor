@@ -2,6 +2,7 @@
 
 GerenciadorFase::GerenciadorFase()
 {
+	window = NULL;
 	listaEntidades = NULL;
 	gerenciadorPersistencia = NULL;
 }

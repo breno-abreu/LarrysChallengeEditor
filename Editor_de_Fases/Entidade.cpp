@@ -57,6 +57,13 @@ void Entidade::existir()
 	desenhar_entidade();
 }
 
+void  Entidade::existir_menu(const float xView, const float yView)
+{
+	xEntidade = xView;
+	yEntidade = yView;
+	desenhar_entidade();
+}
+
 void Entidade::desenhar_entidade()
 {
 	window->draw(entidade);
@@ -85,6 +92,11 @@ void Entidade::setComprimento(const float _comprimento)
 void Entidade::setAltura(const float _altura)
 {
 	altura = _altura;
+}
+void Entidade::setCoordenadas(const float _xEntidade, const float _yEntidade)
+{
+	xEntidade = _xEntidade;
+	yEntidade = _yEntidade;
 }
 void Entidade::setxTile(const int _xTile)
 {

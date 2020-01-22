@@ -1,6 +1,7 @@
 #pragma once
 #include "bibliotecas.h"
 #include "ListaEntidades.h"
+#include "GerenciadorPersistencia.h"
 
 class GerenciadorPersistencia
 {

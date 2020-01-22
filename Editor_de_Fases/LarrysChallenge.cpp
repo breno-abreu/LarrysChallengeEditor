@@ -10,8 +10,9 @@ LarrysChallenge::LarrysChallenge():
 	imagemMouse = NULL;
 	tipoEntidade = "Chao";
 	mouse = new RectangleShape(Vector2f(16.0f, 16.0f));
-	texturaMouse = new Texture();
-	texturaMouse->loadFromFile("Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png");
+	mouse->setFillColor(Color::Blue);
+	//texturaMouse = new Texture();
+	//texturaMouse->loadFromFile("Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png");
 	mouse->setTexture(texturaMouse);
 	gerenciadorEntidades = new GerenciadorEntidades(window);
 	gerenciadorFase->adicionar_entidade(100, 100, "Chao");
@@ -23,6 +24,8 @@ LarrysChallenge::LarrysChallenge():
 	window->setFramerateLimit(60);
 	auxVertical = 0;
 	auxHorizontal = 0;
+
+	menu = new Menu(window);
 	aspectRatio = 0;
 	vel = 10;
 	mouseLeft = false;
@@ -31,7 +34,7 @@ LarrysChallenge::LarrysChallenge():
 	entidade->setPosition(Vector2f());
 	view = new View(Vector2f(0.0f, 0.0f), Vector2f(VIEW_WITDH, VIEW_HEIGHT));
 	
-	//window->setMouseCursorVisible(false);
+	window->setMouseCursorVisible(false);
 	executar();
 }
 
@@ -41,6 +44,8 @@ LarrysChallenge::~LarrysChallenge()
 	delete window;
 	delete gerenciadorEntidades;
 	delete gerenciadorFase;
+	delete view;
+	delete entidade;
 }
 
 void LarrysChallenge::executar()
@@ -77,23 +82,28 @@ void LarrysChallenge::executar()
 		Time time = clock.getElapsedTime();
 		//cout << 1.0f / time.asSeconds() << endl;
 		clock.restart().asSeconds();
+		Vector2i mousePos = Mouse::getPosition(*window);
+		//Vector2i mousePos = Mouse::getPosition();
+		xMouse = mousePos.x;
+		yMouse = mousePos.y;
+
 
 		acao_mouse();
 		window->clear(Color(50, 90, 80, 255));
 		window->setView(*view);
 		view->setCenter(Vector2f(auxHorizontal, auxVertical));
+		gerenciadorFase->executar_fase(xMouse, yMouse);
+		view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
+		menu->executar(auxHorizontal, auxVertical);
 		desenhar_preview();
-		gerenciadorFase->executar_fase(10, 10);
-		entidade->setPosition(Vector2f(auxHorizontal + 200, auxVertical + 200));
-		window->draw(*entidade);
 		window->display();
 	}
 }
 void LarrysChallenge::desenhar_preview()
 {
-	mousePos = Mouse::getPosition(*window);
-	xMouse = mousePos.x / 32 * 32;
-	yMouse = mousePos.y / 32 * 32;
+	/*mousePos = Mouse::getPosition(*window);
+	xMouse = (float)mousePos.x / 32 * 32;
+	yMouse = (float)mousePos.y / 32 * 32;*/
 	mouse->setPosition((float)xMouse, (float)yMouse);
 
 	window->draw(*mouse); 
@@ -101,24 +111,22 @@ void LarrysChallenge::desenhar_preview()
 
 void LarrysChallenge::mudar_imagem_mouse()
 {
-	Vector2i mousePos = Mouse::getPosition(*window);
+	//Vector2i mousePos = Mouse::getPosition(*window);
 
-	imagemMouse = gerenciadorEntidades->criar_entidade((float)mousePos.x, (float)mousePos.y, tipoMouse);
+	imagemMouse = gerenciadorEntidades->criar_entidade(xMouse, yMouse, tipoMouse);
 }
 
 void LarrysChallenge::acao_mouse()
 {
 	if (Mouse::isButtonPressed(Mouse::Left) && mouseLeft == false) {
-			Vector2i mousePos = Mouse::getPosition(*window);
-			gerenciadorFase->adicionar_entidade((float)xMouse, (float)yMouse, tipoEntidade);
-			//mouseLeft = true;
-			cout << "aqui" << endl;
+			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade);
+			menu->verificar_botoes(xMouse, yMouse);
+			mouseLeft = true;
 	}
 	if (Mouse::isButtonPressed(Mouse::Right)) {
-		Vector2i mousePos = Mouse::getPosition(*window);
-		gerenciadorFase->excluir_entidade((float)xMouse, (float)yMouse);
+		gerenciadorFase->excluir_entidade(xMouse, yMouse);
 	}
-	/*if (Mouse::isButtonPressed(Mouse::Left) == false && mouseLeft == true){
+	if (Mouse::isButtonPressed(Mouse::Left) == false && mouseLeft == true){
 		mouseLeft = false;
-	}*/
+	}
 }

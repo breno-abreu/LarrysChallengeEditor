@@ -15,10 +15,11 @@ enum {
 	ESQUERDA, 
 	BACKGROUND,
 	MIDDLEGROUND,
-	FOREGROUND
+	FOREGROUND,
+	SALVAR,
+	CARREGAR,
+	NOVO
 };
 
 using namespace std;
 using namespace sf;
-namespace fs = std::experimental::filesystem;
-using namespace fs;

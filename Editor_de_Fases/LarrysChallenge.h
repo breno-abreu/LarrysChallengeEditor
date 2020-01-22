@@ -3,7 +3,7 @@
 #include "Entidade.h"
 #include "GerenciadorFase.h"
 #include "GerenciadorEntidades.h"
-#include "BotaoUI.h"
+#include "Menu.h"
 
 class LarrysChallenge
 {
@@ -22,12 +22,15 @@ private:
 	const float	VIEW_WITDH;
 	float aspectRatio;
 
+	Menu* menu;
+
 	Clock clock;
+
 
 	RectangleShape* entidade;
 	bool magnetico;
-	int xMouse;
-	int yMouse;
+	float xMouse;
+	float yMouse;
 
 	bool mouseLeft;
 
