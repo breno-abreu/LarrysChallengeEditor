@@ -43,7 +43,7 @@ ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWind
 				arquivo >> tipo >> xEntidade >> yEntidade;
 
 				if (arquivo.get() == '\n') {
-					listaEntidades->adicionar_entidade(xEntidade, yEntidade, tipo);
+					listaEntidades->adicionar_entidade(xEntidade, yEntidade, tipo, 3);
 				}
 			}
 			arquivo.close();

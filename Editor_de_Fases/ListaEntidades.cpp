@@ -19,10 +19,10 @@ ListaEntidades::~ListaEntidades()
 	delete gerenciadorEntidades;
 }
 
-void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, int viewx, int viewy)
+void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, float proporcao, int viewx, int viewy)
 {
 	codigo++;
-	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo);
+	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo, proporcao);
 	listaEntidades.push_back(entidade);
 	ordenar();
 }

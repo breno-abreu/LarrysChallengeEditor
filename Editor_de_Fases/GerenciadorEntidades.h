@@ -57,26 +57,31 @@ private:
 	Texture aw;
 	Texture ax;
 	Texture ay;
+	Texture az;
+	Texture ba;
+	Texture bb;
+	Texture bc;
 
-	int profundidade[51] = {1, 1, 1, 1, 1, 0, 1, 1, 2, 2, 
+
+	int profundidade[55] = {1, 1, 1, 1, 1, 0, 1, 1, 2, 2, 
 							2, 0, 0, 0, 0, 1, 1, 0, 0, 0, 
 							0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
 							2, 2, 1, 1, 1, 1, 1, 1, 1, 1,
 							1, 1, 1, 0, 0, 1, 2, 2, 1, 1,
-							1};
+							1, 3, 3, 1, 1};
 
-	Texture* texturas[51] = { &a, &b, &c, &d, &e, &f, &g, &h, &i, &j, 
+	Texture* texturas[55] = { &a, &b, &c, &d, &e, &f, &g, &h, &i, &j, 
 							  &k, &l, &m, &n, &o, &p, &q, &r, &s, &t, 
 							  &u, &v, &w, &x, &y, &z, &aa, &ab, &ac, &ad,
 							  &ae, &af, &ag, &ah, &ai, &aj, &ak, &al, &am, &an,
 							  &ao, &ap, &aq, &ar, &as, &at, &au, &av, &aw, &ax,
-							  &ay };
+							  &ay, &az, &ba, &bb, &bc };
 
 public:
 	GerenciadorEntidades();
 	GerenciadorEntidades(RenderWindow* _window);
 	~GerenciadorEntidades();
-	Entidade* criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo = -1);
+	Entidade* criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo = -1, const float proporcao = 3);
 	Texture* getTextura(const int n);
 };
 

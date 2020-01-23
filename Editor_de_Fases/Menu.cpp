@@ -95,14 +95,14 @@ void Menu::criar_botoes_entidades()
 	int cx = 1250;
 	int cy = 100;
 	int cont = 0;
-	int distanciaPadrao = 75;
+	int distanciaPadrao = 60;
 
-	for (int i = 0; i < 51; i++) {
-		listaEntidades->adicionar_entidade(cx, cy, i);
+	for (int i = 0; i < 55; i++) {
+		listaEntidades->adicionar_entidade(cx, cy, i, 2);
 		cx += distanciaPadrao;
 		cont++;
 
-		if (cont == 5) {
+		if (cont == 6) {
 			cont = 0;
 			cy += distanciaPadrao;
 			cx = 1250;

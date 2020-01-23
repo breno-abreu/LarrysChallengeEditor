@@ -160,7 +160,7 @@ void LarrysChallenge::acao_mouse()
 {
 	if (xMouse < 1200 && tipoEntidade != -1) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
-			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical);
+			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical, 3);
 			mouseLeft = true;
 		}
 		if (Mouse::isButtonPressed(Mouse::Right) && !mouseRight) {

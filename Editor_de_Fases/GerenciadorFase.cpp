@@ -24,9 +24,9 @@ void GerenciadorFase::executar_fase(int mousex, int mousey, int viewx, int viewy
 {
 	listaEntidades->percorrer(viewx, viewy);
 }
-void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, const int tipo, int viewx, int viewy)
+void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, const int tipo, int viewx, int viewy, float proporcao)
 {
-	listaEntidades->adicionar_entidade(mousex, mousey, tipo, viewx, viewy);
+	listaEntidades->adicionar_entidade(mousex, mousey, tipo, proporcao, viewx, viewy);
 }
 void GerenciadorFase::excluir_entidade(int mousex, int mousey, int viewx, int viewy)
 {

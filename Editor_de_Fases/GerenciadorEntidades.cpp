@@ -17,48 +17,52 @@ GerenciadorEntidades::GerenciadorEntidades(RenderWindow* _window)
 	g.loadFromFile("Textures/Chave.png");
 	h.loadFromFile("Textures/Coin.png");
 	i.loadFromFile("Textures/Coluna_Horizontal.png");
-	j.loadFromFile("Textures/Coluna_Vertical.png");
-	k.loadFromFile("Textures/Coluna_Vertical2.png");
-	l.loadFromFile("Textures/Floor_push_down.png");
-	m.loadFromFile("Textures/Floor_push_left.png");
-	n.loadFromFile("Textures/Floor_push_right.png");
-	o.loadFromFile("Textures/Floor_push_up.png");
-	p.loadFromFile("Textures/Green_orb.png");
-	q.loadFromFile("Textures/Jogador.png");
-	r.loadFromFile("Textures/Parede.png");
-	s.loadFromFile("Textures/Passagem.png");
-	t.loadFromFile("Textures/Pit00.png");
-	u.loadFromFile("Textures/Pit01.png");
-	v.loadFromFile("Textures/Pit02.png");
-	w.loadFromFile("Textures/Pit03.png");
-	x.loadFromFile("Textures/Pit04.png");
-	y.loadFromFile("Textures/Pit05.png");
-	z.loadFromFile("Textures/Pit06.png");
-	aa.loadFromFile("Textures/Pit07.png");
-	ab.loadFromFile("Textures/Pit08.png");
-	ac.loadFromFile("Textures/Pit09.png");
-	ad.loadFromFile("Textures/Porta.png");
-	ae.loadFromFile("Textures/Porta_Aberta.png");
-	af.loadFromFile("Textures/Porta_Vertical.png");
-	ag.loadFromFile("Textures/Rat_down.png");
-	ah.loadFromFile("Textures/Rat_left.png");
-	ai.loadFromFile("Textures/Rat_right.png");
-	aj.loadFromFile("Textures/Rat_up.png");
-	ak.loadFromFile("Textures/Red_orb.png");
-	al.loadFromFile("Textures/Rock2.png");
-	am.loadFromFile("Textures/Shooting_trap_down.png");
-	an.loadFromFile("Textures/Shooting_trap_left.png");
-	ao.loadFromFile("Textures/Shooting_trap_right.png");
-	ap.loadFromFile("Textures/Shooting_trap_up.png");
-	aq.loadFromFile("Textures/Skel.png");
-	ar.loadFromFile("Textures/Spike_trap.png");
-	as.loadFromFile("Textures/Stairs_down.png");
-	at.loadFromFile("Textures/Switch_press.png");
-	au.loadFromFile("Textures/Topo_Coluna_Direita.png");
-	av.loadFromFile("Textures/Topo_Coluna_Esquerda.png");
-	aw.loadFromFile("Textures/Switch_blue_orange.png");
-	ax.loadFromFile("Textures/Torch.png");
-	ay.loadFromFile("Textures/Zombie.png");
+	j.loadFromFile("Textures/Coluna_Vertical_Direita.png");
+	k.loadFromFile("Textures/Coluna_Vertical_Esquerda.png");
+	l.loadFromFile("Textures/Coluna_Vertical2_Direita.png");
+	m.loadFromFile("Textures/Coluna_Vertical2_Esquerda.png");
+	n.loadFromFile("Textures/Floor_push_down.png");
+	o.loadFromFile("Textures/Floor_push_left.png");
+	p.loadFromFile("Textures/Floor_push_right.png");
+	q.loadFromFile("Textures/Floor_push_up.png");
+	r.loadFromFile("Textures/Green_orb.png");
+	s.loadFromFile("Textures/Jogador.png");
+	t.loadFromFile("Textures/Parede.png");
+	u.loadFromFile("Textures/Passagem.png");
+	v.loadFromFile("Textures/Pit00.png");
+	w.loadFromFile("Textures/Pit01.png");
+	x.loadFromFile("Textures/Pit02.png");
+	y.loadFromFile("Textures/Pit03.png");
+	z.loadFromFile("Textures/Pit04.png");
+	aa.loadFromFile("Textures/Pit05.png");
+	ab.loadFromFile("Textures/Pit06.png");
+	ac.loadFromFile("Textures/Pit07.png");
+	ad.loadFromFile("Textures/Pit08.png");
+	ae.loadFromFile("Textures/Pit09.png");
+	af.loadFromFile("Textures/Porta.png");
+	ag.loadFromFile("Textures/Porta_Aberta.png");
+	ah.loadFromFile("Textures/Porta_Cima.png");
+	ai.loadFromFile("Textures/Porta_Vertical_Direita.png");
+	aj.loadFromFile("Textures/Porta_Vertical_Esquerda.png");
+	ak.loadFromFile("Textures/Rat_down.png");
+	al.loadFromFile("Textures/Rat_left.png");
+	am.loadFromFile("Textures/Rat_right.png");
+	an.loadFromFile("Textures/Rat_up.png");
+	ao.loadFromFile("Textures/Red_orb.png");
+	ap.loadFromFile("Textures/Rock2.png");
+	aq.loadFromFile("Textures/Shooting_trap_down.png");
+	ar.loadFromFile("Textures/Shooting_trap_left.png");
+	as.loadFromFile("Textures/Shooting_trap_right.png");
+	at.loadFromFile("Textures/Shooting_trap_up.png");
+	au.loadFromFile("Textures/Skel.png");
+	av.loadFromFile("Textures/Spike_trap.png");
+	aw.loadFromFile("Textures/Stairs_down.png");
+	ax.loadFromFile("Textures/Switch_press.png");
+	ay.loadFromFile("Textures/Topo_Coluna_Direita.png");
+	az.loadFromFile("Textures/Topo_Coluna_Esquerda.png");
+	ba.loadFromFile("Textures/Switch_blue_orange.png");
+	bb.loadFromFile("Textures/Torch.png");
+	bc.loadFromFile("Textures/Zombie.png");
 }
 
 
@@ -71,10 +75,10 @@ Texture* GerenciadorEntidades::getTextura(const int n)
 	return texturas[n];
 }
 
-Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo)
+Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo, const float proporcao)
 {
 	//RenderWindow* _window, Texture* _textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo
-	Entidade* entidade = new Entidade(window, texturas[tipo], mousex, mousey, codigo, profundidade[tipo], tipo);
+	Entidade* entidade = new Entidade(window, texturas[tipo], mousex, mousey, codigo, profundidade[tipo], tipo, proporcao);
 	return entidade;
 
 	/*if (tipo == 1) {

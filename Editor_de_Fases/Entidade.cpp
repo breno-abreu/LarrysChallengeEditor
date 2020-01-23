@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo)
+Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo, float proporcao)
 {
 	codigo = _codigo;
 	profundidade = _profundidade;
@@ -13,8 +13,8 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, f
 	cy = 0;
 	diretorio = "";
 	textura = _textura;
-	comprimento = textura->getSize().x * 3;
-	altura = textura->getSize().y * 3;
+	comprimento = textura->getSize().x * proporcao;
+	altura = textura->getSize().y * proporcao;
 	window = _window;
 	entidade.setPosition(xEntidade, yEntidade);
 	entidade.setSize(Vector2f(comprimento, altura));
