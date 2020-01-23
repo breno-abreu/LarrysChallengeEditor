@@ -28,9 +28,9 @@ void GerenciadorFase::adicionar_entidade(const int mousex, const int mousey, con
 {
 	listaEntidades->adicionar_entidade(mousex, mousey, tipo, viewx, viewy);
 }
-void GerenciadorFase::excluir_entidade(int mousex, int mousey)
+void GerenciadorFase::excluir_entidade(int mousex, int mousey, int viewx, int viewy)
 {
-	listaEntidades->excluir_entidade(mousex, mousey);
+	listaEntidades->excluir_entidade(mousex, mousey, viewx, viewy);
 }
 void GerenciadorFase::limpar_fase()
 {

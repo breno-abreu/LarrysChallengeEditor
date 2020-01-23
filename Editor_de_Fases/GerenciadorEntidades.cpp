@@ -66,17 +66,18 @@ GerenciadorEntidades::~GerenciadorEntidades()
 {
 }
 
+Texture* GerenciadorEntidades::getTextura(const int n)
+{
+	return texturas[n];
+}
+
 Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo)
 {
-	int profundidade = BACKGROUND;
-	int xTile = 0;
-	int yTile = 0;
-	int quantidadeLinhas = 1;
-	int quantidadeColunas = 1;
-	Texture* textura = NULL;
-	string nome = "";
+	//RenderWindow* _window, Texture* _textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo
+	Entidade* entidade = new Entidade(window, texturas[tipo], mousex, mousey, codigo, profundidade[tipo], tipo);
+	return entidade;
 
-	if (tipo == 1) {
+	/*if (tipo == 1) {
 		nome = "Jogador";
 		profundidade = MIDDLEGROUND;
 		quantidadeLinhas = 1;
@@ -494,9 +495,7 @@ Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mouse
 	else {
 		cout << "Tipo não encontrado" << endl;
 		return NULL;
-	}
-	Entidade* entidade = new Entidade(window, nome, textura, mousex, mousey, codigo, profundidade, xTile, yTile, quantidadeLinhas, quantidadeColunas, tipo);
-	return entidade;
+	}*/
 }
 
 /*Entidade* GerenciadorEntidades::criar_jogador(int xEntidade, int yEntidade, int codigo)

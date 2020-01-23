@@ -14,6 +14,7 @@ private:
 	float origemyBackground;
 	float xBackground;
 	float yBackground;
+	int tipoEntidade;
 
 public:
 	Menu();
@@ -23,8 +24,8 @@ public:
 	void executar_entidades(const float xView, const float yView);
 	void executar(const float xView, const float yView);
 	void executar_background(const float xView, const float yView);
-	void setAcao(const int _acao);
-	int getAcao() const;
+	void setTipoEntidade(const int _acao);
+	int getTipoEntidade() const;
 	void criar_botoes();
 	void verificar_botoes(const int mousex, const int mousey);
 	void criar_botoes_entidades();

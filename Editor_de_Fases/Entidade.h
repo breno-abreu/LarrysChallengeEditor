@@ -29,7 +29,7 @@ protected:
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, string _nome, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _xTile, int yTile, int _quantidadeLinhas, int _quantidadeColunas, int _tipo, float _comprimento = 48, float _altura = 48);
+	Entidade(RenderWindow* _window, Texture *_textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo);
 	~Entidade();
 	void existir(int viewx, int viewy);
 	void existir_menu(const float xView, const float yView);

@@ -22,6 +22,7 @@ private:
 	const float	VIEW_WITDH;
 	float aspectRatio;
 
+
 	Menu* menu;
 
 	Clock clock;
@@ -33,6 +34,7 @@ private:
 	float yMouse;
 
 	bool mouseLeft;
+	bool mouseRight;
 
 	float auxVertical;
 	float auxHorizontal;
@@ -42,7 +44,7 @@ public:
 	LarrysChallenge();
 	~LarrysChallenge();
 	void executar();
-	void desenhar_preview();
+	void desenhar_mouse();
 	void acao_mouse();
 	void mudar_imagem_mouse();
 };

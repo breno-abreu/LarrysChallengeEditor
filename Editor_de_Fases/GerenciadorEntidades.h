@@ -77,5 +77,6 @@ public:
 	GerenciadorEntidades(RenderWindow* _window);
 	~GerenciadorEntidades();
 	Entidade* criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo = -1);
+	Texture* getTextura(const int n);
 };
 

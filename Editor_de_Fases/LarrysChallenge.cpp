@@ -8,16 +8,19 @@ LarrysChallenge::LarrysChallenge():
 	gerenciadorFase = new GerenciadorFase(window);
 	tipoMouse = 1;
 	imagemMouse = NULL;
-	tipoEntidade = 1;
+	tipoEntidade = 0;
 	mouse = new RectangleShape(Vector2f(16.0f, 16.0f));
-	mouse->setFillColor(Color::Blue);
+	//mouse->setFillColor(Color::Blue);
 	//texturaMouse = new Texture();
 	//texturaMouse->loadFromFile("Tiny Dungeon Pack/Character/Char_one/Char_4_sides.png");
-	mouse->setTexture(texturaMouse);
+	
 	gerenciadorEntidades = new GerenciadorEntidades(window);
 	/*gerenciadorFase->adicionar_entidade(100, 100, "Chao");
 	gerenciadorFase->adicionar_entidade(100, 150, "Chao");
 	gerenciadorFase->adicionar_entidade(100, 150, "Chao");*/
+	texturaMouse = gerenciadorEntidades->getTextura(0);
+	mouse->setTexture(texturaMouse);
+	mouse->setSize(Vector2f(texturaMouse->getSize().x * 3, texturaMouse->getSize().y * 3));
 	magnetico = true;
 	xMouse = 0;
 	yMouse = 0;
@@ -29,6 +32,7 @@ LarrysChallenge::LarrysChallenge():
 	aspectRatio = 0;
 	vel = 10;
 	mouseLeft = false;
+	mouseRight = false;
 	entidade = new RectangleShape(Vector2f(32.f, 32.f));
 	entidade->setFillColor(Color::Blue);
 	entidade->setPosition(Vector2f());
@@ -82,12 +86,13 @@ void LarrysChallenge::executar()
 		Time time = clock.getElapsedTime();
 		//cout << 1.0f / time.asSeconds() << endl;
 		clock.restart().asSeconds();
-		Vector2i mousePos = Mouse::getPosition(*window);
+		//Vector2i mousePos = Mouse::getPosition(*window);
 		//Vector2i mousePos = Mouse::getPosition();
-		xMouse = mousePos.x;
-		yMouse = mousePos.y;
-
-		cout << tipoEntidade << endl;
+		//xMouse = mousePos.x;
+		//yMouse = mousePos.y;
+		//xMouse = (float)mousePos.x / 16 * 16;
+		//yMouse = (float)mousePos.y / 16 * 16;
+		//cout << tipoEntidade << endl;
 		acao_mouse();
 		window->clear(Color(50, 90, 80, 255));
 		window->setView(*view);
@@ -95,15 +100,27 @@ void LarrysChallenge::executar()
 		gerenciadorFase->executar_fase(xMouse, yMouse, auxHorizontal, auxVertical);
 		view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
 		menu->executar(auxHorizontal, auxVertical);
-		desenhar_preview();
+		desenhar_mouse();
 		window->display();
 	}
 }
-void LarrysChallenge::desenhar_preview()
+void LarrysChallenge::desenhar_mouse()
 {
-	/*mousePos = Mouse::getPosition(*window);
-	xMouse = (float)mousePos.x / 32 * 32;
-	yMouse = (float)mousePos.y / 32 * 32;*/
+	//mousePos = Mouse::getPosition(*window);
+	//xMouse = (float)mousePos.x / 48 * 48;
+	//yMouse = (float)mousePos.y / 48 * 48;
+	Vector2i mousePos = Mouse::getPosition(*window);
+
+	if (xMouse < 1200) {
+		xMouse = mousePos.x / 64 * 64;
+		yMouse = mousePos.y / 64 * 64;
+	}
+	else {
+		xMouse = mousePos.x;
+		yMouse = mousePos.y;
+	}
+	
+
 	mouse->setPosition((float)xMouse, (float)yMouse);
 
 	window->draw(*mouse); 
@@ -118,17 +135,32 @@ void LarrysChallenge::mudar_imagem_mouse()
 
 void LarrysChallenge::acao_mouse()
 {
-	if (Mouse::isButtonPressed(Mouse::Left) && mouseLeft == false) {
+	if (xMouse < 1200) {
+		if (Mouse::isButtonPressed(Mouse::Left) && mouseLeft == false) {
 			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical);
+			mouseLeft = true;
+		}
+		if (Mouse::isButtonPressed(Mouse::Right) && mouseRight == false) {
+			gerenciadorFase->excluir_entidade(xMouse, yMouse, auxHorizontal, auxVertical);
+			mouseRight = true;
+		}
+	}
+	else if (xMouse >= 1200) {
+		if (Mouse::isButtonPressed(Mouse::Left) && mouseLeft == false) {
 			menu->verificar_botoes(xMouse, yMouse);
 			menu->verificar_botoes_entidade(xMouse, yMouse);
-			tipoEntidade = menu->getAcao();
+			tipoEntidade = menu->getTipoEntidade();
 			mouseLeft = true;
+			texturaMouse = gerenciadorEntidades->getTextura(tipoEntidade);
+			mouse->setSize(Vector2f(texturaMouse->getSize().x * 3, texturaMouse->getSize().y * 3));
+			mouse->setTexture(texturaMouse);
+		}
 	}
-	if (Mouse::isButtonPressed(Mouse::Right)) {
-		gerenciadorFase->excluir_entidade(xMouse, yMouse);
-	}
+	
 	if (Mouse::isButtonPressed(Mouse::Left) == false && mouseLeft == true){
 		mouseLeft = false;
+	}
+	if (Mouse::isButtonPressed(Mouse::Right) == false && mouseRight == true) {
+		mouseRight = false;
 	}
 }

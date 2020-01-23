@@ -26,13 +26,13 @@ void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, int vi
 	listaEntidades.push_back(entidade);
 	ordenar();
 }
-void ListaEntidades::excluir_entidade(int mousex, int mousey)
+void ListaEntidades::excluir_entidade(int mousex, int mousey, int viewx, int viewy)
 {
-	list<Entidade*>::iterator itr;
-	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
-		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
-			&& mousey > (*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
-			listaEntidades.erase(itr);
+	list<Entidade*>::reverse_iterator itr;
+	for (itr = listaEntidades.rbegin(); itr != listaEntidades.rend(); itr++) {
+		if (mousex - viewx > (*itr)->getxEntidade() && mousex - viewx < (*itr)->getxEntidade() + (*itr)->getComprimento()
+			&& mousey - viewy > (*itr)->getyEntidade() && mousey - viewy < (*itr)->getyEntidade() + (*itr)->getAltura()) {
+			listaEntidades.erase(next(itr).base());
 			break;
 		}
 	}
