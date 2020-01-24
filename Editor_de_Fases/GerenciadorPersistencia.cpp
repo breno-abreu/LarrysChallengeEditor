@@ -12,7 +12,7 @@ GerenciadorPersistencia::~GerenciadorPersistencia()
 
 bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nomeArquivo)
 {
-	if (pesquisar_lista_arquivos(nomeArquivo)) {
+	if (!pesquisar_lista_arquivos(nomeArquivo)) {
 		ofstream arquivo("Fases/" + nomeArquivo + ".lcs");
 		list<Entidade*> lista = listaEntidades->getLista();
 		list<Entidade*>::iterator itr;
@@ -31,26 +31,23 @@ bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nome
 }
 ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWindow* _window)
 {
+	ListaEntidades* lista = new ListaEntidades(_window);
 	ifstream arquivo("Fases/" + nomeArquivo + ".lcs");
-	listaEntidades = new ListaEntidades(_window);
 	int tipo = 1;
 	float xEntidade = 0;
 	float yEntidade = 0;
 
-	if (pesquisar_lista_arquivos(nomeArquivo)) {
-		if (arquivo.is_open()) {
-			while (!arquivo.eof()) {
-				arquivo >> tipo >> xEntidade >> yEntidade;
 
-				if (arquivo.get() == '\n') {
-					listaEntidades->adicionar_entidade(xEntidade, yEntidade, tipo, 3);
-				}
+	if (arquivo.is_open()) {
+		while (!arquivo.eof()) {
+			arquivo >> tipo >> xEntidade >> yEntidade;
+			if (arquivo.get() == '\n') {
+				lista->adicionar_entidade(xEntidade, yEntidade, tipo, 3);
 			}
-			arquivo.close();
 		}
-		return listaEntidades;
+		arquivo.close();
 	}
-	return NULL;
+	return lista;
 }
 
 bool GerenciadorPersistencia::excluir_arquivo(string nomeArquivo)

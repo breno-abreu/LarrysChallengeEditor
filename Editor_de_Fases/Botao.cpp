@@ -6,8 +6,7 @@ Botao::Botao()
 }
 Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distanciay, const string _texto, const float _distanciaxTexto, const int _tipo)
 {
-	xBotao = 0;
-	yBotao = 0;
+	
 	//texto = _texto;
 	window = _window;
 	ativo = false;
@@ -15,6 +14,8 @@ Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distan
 	altura = 30;
 	distanciax = _distanciax;
 	distanciay = _distanciay;
+	xBotao = distanciax;
+	yBotao = distanciay;
 	distanciaxTexto = _distanciaxTexto;
 	botao = new RectangleShape();
 	botao->setSize(Vector2f(comprimento, altura));

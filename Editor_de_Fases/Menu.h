@@ -15,6 +15,11 @@ private:
 	float xBackground;
 	float yBackground;
 	int tipoEntidade;
+	Text* texto;
+	Font* fonte;
+	string frase;
+	bool confirmar;
+	bool recusar;
 
 public:
 	Menu();
@@ -27,9 +32,15 @@ public:
 	void setTipoEntidade(const int _acao);
 	int getTipoEntidade() const;
 	void criar_botoes();
+	int getAcao() const;
+	void setAcao(const int _acao);
 	void verificar_botoes(const int mousex, const int mousey);
 	void criar_botoes_entidades();
 	void verificar_botoes_entidade(const int mousex, const int mousey);
+	bool getConfirmar()const;
+	void setConfirmar(const bool _confirmar);
+	void setRecusar(const bool _recusar);
+	bool getRecusar()const;
 
 };
 

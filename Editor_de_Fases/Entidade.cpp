@@ -27,8 +27,8 @@ Entidade::Entidade()
 	codigo = -1;
 	xTile = 0;
 	yTile = 0;
-	profundidade = BACKGROUND;
-	direcao = NULO;
+	profundidade = 0;
+	direcao = 0;
 	xEntidade = 0;
 	yEntidade = 0;
 	comprimento = 0;

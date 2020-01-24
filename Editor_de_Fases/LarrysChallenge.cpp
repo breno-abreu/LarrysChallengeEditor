@@ -28,6 +28,8 @@ LarrysChallenge::LarrysChallenge():
 	yMouse = 0;
 	window->setFramerateLimit(60);
 	auxVertical = 0;
+
+	acao = 4;
 	auxHorizontal = 0;
 
 	menu = new Menu(window);
@@ -38,9 +40,14 @@ LarrysChallenge::LarrysChallenge():
 	comprimentoMouse = 0;
 	alturaMouse = 0;
 	view = new View(Vector2f(0.0f, 0.0f), Vector2f(VIEW_WITDH, VIEW_HEIGHT));
+	excluir = false;
+	confirmar = false;
+	recusar = false;
 
 	auxMouse = false;
 	view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
+
+	arquivo = "teste";
 
 
 	window->setMouseCursorVisible(false);
@@ -128,15 +135,24 @@ void LarrysChallenge::desenhar_mouse()
 	//Mouse::setPosition(Vector2i(100, 100));
 
 	if (xMouse < 1200) {
-		xMouse = (mousePos.x / 24 * 24);
-		yMouse = (mousePos.y / 24 * 24);
 
-		if (tipoEntidade != -1) {
-			window->setMouseCursorVisible(false);
-			mouse->setSize(Vector2f(comprimentoMouse, alturaMouse));
+		if (!excluir) {
+			xMouse = (mousePos.x / 24 * 24);
+			yMouse = (mousePos.y / 24 * 24);
+
+			if (tipoEntidade != -1) {
+				window->setMouseCursorVisible(false);
+				mouse->setSize(Vector2f(comprimentoMouse, alturaMouse));
+			}
+			else
+				window->setMouseCursorVisible(true);
 		}
-		else
+		else {
+			xMouse = mousePos.x;
+			yMouse = mousePos.y;
 			window->setMouseCursorVisible(true);
+			mouse->setSize(Vector2f(0, 0));
+		}
 	}
 	else {
 		xMouse = mousePos.x;
@@ -145,8 +161,8 @@ void LarrysChallenge::desenhar_mouse()
 		mouse->setSize(Vector2f(0, 0));
 	}
 	mouse->setPosition((float)xMouse, (float)yMouse);
-	
-	window->draw(*mouse); 
+
+	window->draw(*mouse);
 }
 
 void LarrysChallenge::mudar_imagem_mouse()
@@ -160,16 +176,28 @@ void LarrysChallenge::acao_mouse()
 {
 	if (xMouse < 1200 && tipoEntidade != -1) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
-			gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical, 3);
+
+			if (!excluir)
+				gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical, 3);
+			else
+				gerenciadorFase->excluir_entidade(xMouse, yMouse, auxHorizontal, auxVertical);
+
 			mouseLeft = true;
 		}
 		if (Mouse::isButtonPressed(Mouse::Right) && !mouseRight) {
-			gerenciadorFase->excluir_entidade(xMouse, yMouse, auxHorizontal, auxVertical);
+
 			mouseRight = true;
+			if (excluir == true)
+				excluir = false;
+			else
+				excluir = true;
 		}
 	}
 	else if (xMouse >= 1200) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
+
+
+
 			menu->verificar_botoes(xMouse, yMouse);
 			menu->verificar_botoes_entidade(xMouse, yMouse);
 			tipoEntidade = menu->getTipoEntidade();
@@ -179,14 +207,40 @@ void LarrysChallenge::acao_mouse()
 			alturaMouse = texturaMouse->getSize().y * 3;
 			//mouse->setSize(Vector2f(comprimentoMouse, alturaMouse));
 			//cout << texturaMouse->getSize().y << endl;
-			
-			
+
+
 			RectangleShape* aux = new RectangleShape();
 			mouse = aux;
 			mouse->setTexture(texturaMouse);
 			//mouse->setTextureRect(IntRect(mouse->getPosition().x, mouse->getPosition().y, comprimentoMouse, alturaMouse));
 			mouse->setSize(Vector2f(comprimentoMouse, alturaMouse));
 			mouse->setOrigin(Vector2f(comprimentoMouse / 2, alturaMouse / 2));
+
+			acao = menu->getAcao();
+			confirmar = menu->getConfirmar();
+			recusar = menu->getRecusar();
+
+			if (acao < 3) {
+				if (confirmar) {
+					if (acao == 0) 
+						gerenciadorFase->limpar_fase();
+					else if (acao == 1)
+						gerenciadorFase->carregar_fase(arquivo);
+					else if(acao == 2)
+						gerenciadorFase->salvar_fase(arquivo);
+
+					menu->setConfirmar(false);
+					menu->setAcao(3);
+					confirmar = false;
+					acao = -1;
+				}
+				if (recusar) {
+					menu->setRecusar(false);
+					menu->setAcao(3);
+					recusar = false;
+					acao = -1;
+				}
+			}
 		}
 	}
 	

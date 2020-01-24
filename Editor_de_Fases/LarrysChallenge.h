@@ -44,6 +44,13 @@ private:
 	float alturaMouse;
 
 	bool auxMouse;
+	bool excluir;
+
+	int acao;
+	string arquivo;
+
+	bool confirmar;
+	bool recusar;
 
 	int cont;
 

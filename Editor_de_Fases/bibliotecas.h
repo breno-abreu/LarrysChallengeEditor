@@ -7,18 +7,12 @@
 #include <filesystem>
 #include <SFML/Graphics.hpp>
 
-enum {
-	NULO,
-	CIMA,
-	BAIXO,
-	DIREITA,
-	ESQUERDA, 
-	BACKGROUND,
-	MIDDLEGROUND,
-	FOREGROUND,
-	SALVAR,
+enum Botoes{
+	NOVO,
 	CARREGAR,
-	NOVO
+	SALVAR,
+	OK,
+	CANCELAR
 };
 
 using namespace std;
