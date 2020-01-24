@@ -86,7 +86,7 @@ void Menu::verificar_botoes(const int mousex, const int mousey)
 void Menu::verificar_botoes_entidade(const int mousex, const int mousey)
 {
 	int aux = listaEntidades->verificar_entidades_menu(mousex, mousey);
-	if (aux != 0)
+	if (aux != -1)
 		tipoEntidade = aux;
 }
 

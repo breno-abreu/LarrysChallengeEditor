@@ -50,7 +50,7 @@ void Entidade::existir(int viewx, int viewy)
 {
 	entidade.setPosition(viewx + xEntidade, viewy + yEntidade);
 	desenhar_entidade();
-	
+	//cout << xEntidade << endl;
 	//cx = entidade.getPosition().x;
 	//cy = entidade.getPosition().y;
 
@@ -61,6 +61,7 @@ void  Entidade::existir_menu(const float xView, const float yView)
 	//xEntidade = xView;
 	//yEntidade = yView;
 	desenhar_entidade();
+	
 }
 
 void Entidade::desenhar_entidade()

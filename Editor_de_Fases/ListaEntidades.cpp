@@ -85,5 +85,5 @@ int ListaEntidades::verificar_entidades_menu(const int mousex, const int mousey)
 			return (*itr)->getTipo();
 		}
 	}
-	return NULL;
+	return -1;
 }

@@ -1,68 +1,42 @@
 ﻿  LarrysChallenge.cpp
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(23,83): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(23,52): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(100,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(100,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(100,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(100,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(115,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(116,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(119,20): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(115,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(115,50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(115,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(115,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(131,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(132,29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(142,20): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(120,20): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(143,20): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(133,61): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(133,53): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(140,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(140,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(140,48): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(140,40): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(144,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(144,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(144,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(144,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(150,35): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(150,27): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(151,44): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(151,36): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(155,85): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(156,61): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(156,53): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(163,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(163,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(163,48): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(163,40): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(167,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(167,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(167,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(167,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(173,35): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(173,27): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(174,44): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(174,36): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(178,49): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
           ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(155,54): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Editor_de_Fases\LarrysChallenge.cpp(179,44): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=unsigned int
-          ]
-          and
-          [
-              T=float
           ]
   Editor_de_Fases.vcxproj -> C:\Users\Breno Abreu\Downloads\Projeto Larry's Challenge\Larry's Challenge Editor de Fases C++\Editor_de_Fases\Debug\Editor_de_Fases.exe

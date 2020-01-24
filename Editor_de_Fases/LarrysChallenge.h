@@ -40,6 +40,13 @@ private:
 	float auxHorizontal;
 	float vel;
 
+	float comprimentoMouse;
+	float alturaMouse;
+
+	bool auxMouse;
+
+	int cont;
+
 public:
 	LarrysChallenge();
 	~LarrysChallenge();
