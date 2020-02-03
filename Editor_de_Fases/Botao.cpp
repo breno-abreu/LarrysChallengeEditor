@@ -42,12 +42,14 @@ Botao::~Botao()
 	delete fonte;
 }
 
-void Botao::desenhar_botao(const float _xBotao, const float _yBotao)
+void Botao::desenhar_botao(const float xView, const float yView)
 {
 	window->draw(*botao);
 	//botao->setPosition(_xBotao + distanciax, _yBotao + distanciay);
+	botao->setPosition(Vector2f(xBotao, yBotao));
 	window->draw(*texto);
 	//texto->setPosition(_xBotao + distanciax + distanciaxTexto, _yBotao + distanciay + 3);
+	texto->setPosition(Vector2f(xBotao + distanciaxTexto, yBotao + 3));
 
 	/*xBotao = botao->getPosition().x;
 	yBotao = botao->getPosition().y;*/
@@ -95,4 +97,13 @@ float Botao::getComprimento()const
 int Botao::getTipo()const
 {
 	return tipo;
+}
+
+float Botao::getDistanciax() const
+{
+	return distanciax;
+}
+float Botao::getDistanciay() const
+{
+	return distanciay;
 }

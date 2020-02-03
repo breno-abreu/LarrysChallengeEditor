@@ -1,8 +1,8 @@
 #include "LarrysChallenge.h"
 
 LarrysChallenge::LarrysChallenge():
-	VIEW_HEIGHT(900.f),
-	VIEW_WITDH(1600.f)
+	VIEW_HEIGHT(900),
+	VIEW_WITDH(1600)
 {
 	window = new RenderWindow(VideoMode(1600, 900), "Larry's Challenge Editor", Style::Close | Style::Resize);
 	gerenciadorFase = new GerenciadorFase(window);
@@ -32,7 +32,7 @@ LarrysChallenge::LarrysChallenge():
 	acao = 4;
 	auxHorizontal = 0;
 
-	menu = new Menu(window);
+	
 	aspectRatio = 0;
 	vel = 48;
 	mouseLeft = false;
@@ -43,9 +43,11 @@ LarrysChallenge::LarrysChallenge():
 	excluir = false;
 	confirmar = false;
 	recusar = false;
-
+	
 	auxMouse = false;
 	view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
+
+	menu = new Menu(window, view);
 
 	arquivo = "teste";
 
@@ -100,7 +102,6 @@ void LarrysChallenge::executar()
 			}
 			cont = 0;
 		}
-		
 
 		cont++;
 		
@@ -118,9 +119,11 @@ void LarrysChallenge::executar()
 		acao_mouse();
 		window->clear(Color(50, 90, 80, 255));
 		window->setView(*view);
-		view->setCenter(Vector2f(auxHorizontal, auxVertical));
+		//view->setCenter(Vector2f(auxHorizontal, auxVertical));
+
 		gerenciadorFase->executar_fase(xMouse, yMouse, auxHorizontal, auxVertical);
 		view->setCenter(VIEW_WITDH / 2, VIEW_HEIGHT / 2);
+		
 		menu->executar(auxHorizontal, auxVertical);
 		desenhar_mouse();
 		window->display();
@@ -134,7 +137,7 @@ void LarrysChallenge::desenhar_mouse()
 	Vector2i mousePos = Mouse::getPosition(*window);
 	//Mouse::setPosition(Vector2i(100, 100));
 
-	if (xMouse < 1200) {
+	if (xMouse < view->getCenter().x + (view->getSize().x / 2) - menu->getLarguraMenu()) {
 
 		if (!excluir) {
 			xMouse = (mousePos.x / 24 * 24);
@@ -174,7 +177,7 @@ void LarrysChallenge::mudar_imagem_mouse()
 
 void LarrysChallenge::acao_mouse()
 {
-	if (xMouse < 1200 && tipoEntidade != -1) {
+	if (xMouse < view->getCenter().x + (view->getSize().x / 2) - menu->getLarguraMenu() && tipoEntidade != -1) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
 
 			if (!excluir)
@@ -193,7 +196,7 @@ void LarrysChallenge::acao_mouse()
 				excluir = true;
 		}
 	}
-	else if (xMouse >= 1200) {
+	else if (xMouse >= view->getCenter().x + (view->getSize().x / 2) - menu->getLarguraMenu()) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
 
 

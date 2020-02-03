@@ -16,6 +16,8 @@ protected:
 	int tipo;
 	float xEntidade;
 	float yEntidade;
+	float xEntidadeOrigem;
+	float yEntidadeOrigem;
 	float comprimento;
 	float altura;
 	float cx;

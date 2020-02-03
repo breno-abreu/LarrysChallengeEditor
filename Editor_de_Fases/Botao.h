@@ -34,5 +34,7 @@ public:
 	float getAltura()const;
 	float getComprimento()const;
 	int getTipo()const;
+	float getDistanciax() const;
+	float getDistanciay() const;
 };
 

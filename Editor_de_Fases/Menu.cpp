@@ -1,6 +1,7 @@
 #include "Menu.h"
 
-Menu::Menu()
+Menu::Menu():
+	larguraMenu(400)
 {
 }
 
@@ -12,18 +13,21 @@ Menu::~Menu()
 	listaBotoes.clear();
 }
 
-Menu::Menu(RenderWindow* _window)
+Menu::Menu(RenderWindow* _window, View* _view):
+	larguraMenu(400)
 {
-	origemxBackground = 1200;
+	view = _view;
 	origemyBackground = 0;
 	window = _window;
+	origemxBackground = view->getSize().x - larguraMenu;
 	xBackground = 1200;
 	tipoEntidade = 0;
 	yBackground = 0;
 	listaEntidades = new ListaEntidades(_window);
 	background = new RectangleShape();
-	background->setSize(Vector2f(400, 900));
-	background->setPosition(origemxBackground, origemyBackground);
+
+	background->setSize(Vector2f(larguraMenu, view->getSize().y));
+	background->setPosition(Vector2f(view->getSize().x - larguraMenu, 0));
 	background->setFillColor(Color::Color(160, 160, 160, 255));
 	acao = 4;
 	frase = "";
@@ -48,6 +52,9 @@ void Menu::executar_botoes(const float xView, const float yView)
 	list<Botao*>::iterator itr;
 	for (itr = listaBotoes.begin(); itr != listaBotoes.end(); itr++) {
 
+		(*itr)->setCoordenadas(view->getCenter().x + (view->getSize().x / 2) - (*itr)->getDistanciax(), view->getCenter().y - (view->getSize().y / 2) + (*itr)->getDistanciay());
+
+
 		if (acao < 3){
 			(*itr)->desenhar_botao(xView, yView);
 		}
@@ -55,12 +62,11 @@ void Menu::executar_botoes(const float xView, const float yView)
 			if ((*itr)->getTipo() < 3)
 				(*itr)->desenhar_botao(xView, yView);
 		}
-		
 	}
 }
 void Menu::executar_entidades(const float xView, const float yView)
 {
-	listaEntidades->percorrer_menu(xView, yView);
+	listaEntidades->percorrer_menu(view->getCenter().x + (view->getSize().x / 2), view->getCenter().y - (view->getSize().y / 2));
 }
 void Menu::executar(const float xView, const float yView)
 {
@@ -70,11 +76,14 @@ void Menu::executar(const float xView, const float yView)
 	if (acao >= 3) {
 		executar_entidades(xView, yView);
 	}
-		
 
 }
 void Menu::executar_background(const float xView, const float yView)
 {
+	
+	background->setSize(Vector2f(larguraMenu, view->getSize().y));
+	background->setPosition(Vector2f(view->getCenter().x + (view->getSize().x / 2) - larguraMenu, view->getCenter().y - (view->getSize().y / 2)));
+
 	window->draw(*background);
 	window->draw(*texto);
 }
@@ -89,13 +98,13 @@ int Menu::getTipoEntidade() const
 
 void Menu::criar_botoes()
 {
-	Botao* botao = new Botao(window, 1225, 25, "Novo", 25, Botoes::NOVO);
+	Botao* botao = new Botao(window, 375, 25, "Novo", 25, Botoes::NOVO);
 	listaBotoes.push_back(botao);
 
-	botao = new Botao(window, 1350, 25, "Carregar", 10, Botoes::CARREGAR);
+	botao = new Botao(window, 250, 25, "Carregar", 10, Botoes::CARREGAR);
 	listaBotoes.push_back(botao);
 
-	botao = new Botao(window, 1475, 25, "Salvar", 22, Botoes::SALVAR);
+	botao = new Botao(window, 125, 25, "Salvar", 22, Botoes::SALVAR);
 	listaBotoes.push_back(botao);
 
 	botao = new Botao(window, 1225, 120, "Cancelar", 10, Botoes::CANCELAR);
@@ -148,7 +157,7 @@ void Menu::verificar_botoes_entidade(const int mousex, const int mousey)
 
 void Menu::criar_botoes_entidades()
 {
-	int cx = 1250;
+	int cx = 50;
 	int cy = 100;
 	int cont = 0;
 	int distanciaPadrao = 60;
@@ -161,7 +170,7 @@ void Menu::criar_botoes_entidades()
 		if (cont == 6) {
 			cont = 0;
 			cy += distanciaPadrao;
-			cx = 1250;
+			cx = 50;
 		}
 	}
 }
@@ -193,4 +202,9 @@ void Menu::setRecusar(const bool _recusar)
 bool Menu::getRecusar()const
 {
 	return recusar;
+}
+
+float Menu::getLarguraMenu()const
+{
+	return larguraMenu;
 }

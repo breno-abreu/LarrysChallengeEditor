@@ -7,6 +7,9 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, f
 	direcao = 0;
 	xEntidade = _xEntidade;
 	yEntidade = _yEntidade;
+	xEntidadeOrigem = xEntidade;
+	yEntidadeOrigem = yEntidade;
+
 	existe = true;
 	tipo = _tipo;
 	cx = 0;
@@ -56,10 +59,12 @@ void Entidade::existir(int viewx, int viewy)
 
 }
 
-void  Entidade::existir_menu(const float xView, const float yView)
+void Entidade::existir_menu(const float xView, const float yView)
 {
 	//xEntidade = xView;
 	//yEntidade = yView;
+
+	entidade.setPosition(Vector2f(xView - xEntidadeOrigem, yView + yEntidadeOrigem));
 	desenhar_entidade();
 	
 }

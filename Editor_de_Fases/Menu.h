@@ -10,6 +10,7 @@ private:
 	int acao;
 	RectangleShape* background;
 	RenderWindow* window;
+	View* view;
 	float origemxBackground;
 	float origemyBackground;
 	float xBackground;
@@ -20,10 +21,11 @@ private:
 	string frase;
 	bool confirmar;
 	bool recusar;
+	const int larguraMenu;
 
 public:
 	Menu();
-	Menu(RenderWindow* _window);
+	Menu(RenderWindow* _window, View* _view);
 	~Menu();
 	void executar_botoes(const float xView, const float yView);
 	void executar_entidades(const float xView, const float yView);
@@ -41,6 +43,7 @@ public:
 	void setConfirmar(const bool _confirmar);
 	void setRecusar(const bool _recusar);
 	bool getRecusar()const;
+	float getLarguraMenu()const;
 
 };
 
