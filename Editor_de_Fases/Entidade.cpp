@@ -64,6 +64,8 @@ void Entidade::existir_menu(const float xView, const float yView)
 	//xEntidade = xView;
 	//yEntidade = yView;
 
+
+
 	entidade.setPosition(Vector2f(xView - xEntidadeOrigem, yView + yEntidadeOrigem));
 	desenhar_entidade();
 	
@@ -137,11 +139,13 @@ int Entidade::getTipo() const
 }
 float Entidade::getxEntidade() const
 {
-	return xEntidade - (comprimento / 2);
+	//return xEntidade - (comprimento / 2);
+	return entidade.getPosition().x - (comprimento / 2);
 }
 float Entidade::getyEntidade() const
 {
-	return yEntidade - (altura / 2);
+	//return yEntidade - (altura / 2);
+	return entidade.getPosition().y - (altura / 2);
 }
 float Entidade::getComprimento() const
 {

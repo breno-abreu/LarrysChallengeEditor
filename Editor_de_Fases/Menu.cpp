@@ -29,7 +29,7 @@ Menu::Menu(RenderWindow* _window, View* _view):
 	background->setSize(Vector2f(larguraMenu, view->getSize().y));
 	background->setPosition(Vector2f(view->getSize().x - larguraMenu, 0));
 	background->setFillColor(Color::Color(160, 160, 160, 255));
-	acao = 4;
+	acao = -1;
 	frase = "";
 	texto = new Text();
 	fonte = new Font();
@@ -41,6 +41,15 @@ Menu::Menu(RenderWindow* _window, View* _view):
 	texto->setCharacterSize(20);
 	texto->setFillColor(Color::Color(200, 50, 50, 255));
 	texto->setPosition(1225, 80);
+
+
+	arquivoOut = new Text();
+	arquivoOut->setFont(*fonte);
+	arquivoOut->setCharacterSize(20);
+	arquivoOut->setFillColor(Color::Blue);
+	arquivoOut->setPosition(10, 10);
+	arquivoOut->setString("");
+
 	confirmar = false;
 	recusar = false;
 	criar_botoes();
@@ -73,10 +82,9 @@ void Menu::executar(const float xView, const float yView)
 	executar_background(xView, yView);
 	executar_botoes(xView, yView);
 
-	if (acao >= 3) {
-		executar_entidades(xView, yView);
-	}
+	executar_entidades(xView, yView);
 
+	window->draw(*arquivoOut);
 }
 void Menu::executar_background(const float xView, const float yView)
 {
@@ -98,20 +106,20 @@ int Menu::getTipoEntidade() const
 
 void Menu::criar_botoes()
 {
-	Botao* botao = new Botao(window, 375, 25, "Novo", 25, Botoes::NOVO);
+	Botao* botao = new Botao(window, 375, 25, "Opções", 15, Botoes::OPCOES);
 	listaBotoes.push_back(botao);
 
-	botao = new Botao(window, 250, 25, "Carregar", 10, Botoes::CARREGAR);
+	/*botao = new Botao(window, 250, 25, "Carregar", 10, Botoes::CARREGAR);
 	listaBotoes.push_back(botao);
 
 	botao = new Botao(window, 125, 25, "Salvar", 22, Botoes::SALVAR);
 	listaBotoes.push_back(botao);
 
-	botao = new Botao(window, 1225, 120, "Cancelar", 10, Botoes::CANCELAR);
+	botao = new Botao(window, 375, 120, "Cancelar", 10, Botoes::CANCELAR);
 	listaBotoes.push_back(botao);
 
-	botao = new Botao(window, 1350, 120, "ok", 37, Botoes::OK);
-	listaBotoes.push_back(botao);
+	botao = new Botao(window, 250, 120, "ok", 37, Botoes::OK);
+	listaBotoes.push_back(botao);*/
 
 }
 
@@ -121,7 +129,9 @@ void Menu::verificar_botoes(const int mousex, const int mousey)
 	for (itr = listaBotoes.begin(); itr != listaBotoes.end(); itr++) {
 		if (mousex > (*itr)->getxBotao() && mousex < (*itr)->getxBotao() + (*itr)->getComprimento() &&
 			mousey >(*itr)->getyBotao() && mousey < (*itr)->getyBotao() + (*itr)->getAltura()) {
-			int aux = (*itr)->getTipo();
+			acao = 0;
+
+			/*int aux = (*itr)->getTipo();
 			switch (aux) {
 			case 0:
 				acao = aux;
@@ -144,8 +154,10 @@ void Menu::verificar_botoes(const int mousex, const int mousey)
 				frase = "";
 				break;
 			}
-			texto->setString(frase);
+			texto->setString(frase);*/
 		}
+		else
+			acao = -1;
 	}
 }
 void Menu::verificar_botoes_entidade(const int mousex, const int mousey)
@@ -207,4 +219,15 @@ bool Menu::getRecusar()const
 float Menu::getLarguraMenu()const
 {
 	return larguraMenu;
+}
+
+void Menu::setListaArquivos(const list<string> _listaArquivos)
+{
+	listaArquivos = _listaArquivos;
+}
+
+void Menu::setNomeArquivo(const string _texto)
+{
+	arquivoOut->setString(_texto);
+	window->draw(*arquivoOut);
 }

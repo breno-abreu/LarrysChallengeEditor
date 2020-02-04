@@ -29,15 +29,16 @@ LarrysChallenge::LarrysChallenge():
 	window->setFramerateLimit(60);
 	auxVertical = 0;
 
-	acao = 4;
+	acao = -1;
 	auxHorizontal = 0;
 
-	
+	opcao = "";
 	aspectRatio = 0;
 	vel = 48;
 	mouseLeft = false;
 	mouseRight = false;
 	comprimentoMouse = 0;
+	done = false;
 	alturaMouse = 0;
 	view = new View(Vector2f(0.0f, 0.0f), Vector2f(VIEW_WITDH, VIEW_HEIGHT));
 	excluir = false;
@@ -49,10 +50,10 @@ LarrysChallenge::LarrysChallenge():
 
 	menu = new Menu(window, view);
 
-	arquivo = "teste";
+	arquivo = "";
 
 
-	window->setMouseCursorVisible(false);
+	//window->setMouseCursorVisible(false);
 	executar();
 }
 
@@ -69,15 +70,31 @@ void LarrysChallenge::executar()
 {
 	while (window->isOpen()) {
 
-		Event evnt;
-		while (window->pollEvent(evnt)) {
-			switch (evnt.type)
+		Event event;
+		while (window->pollEvent(event)) {
+			switch (event.type)
 			{
 			case Event::Closed:
 				window->close();
 				break;
 			case Event::Resized:
-				view->setSize((float) evnt.size.width ,(float)evnt.size.height);
+				view->setSize((float) event.size.width ,(float)event.size.height);
+				break;
+			case Event::TextEntered:
+				if (acao == 2) {
+					
+					/*system("cls");
+
+					if (!arquivo.empty() && Keyboard::isKeyPressed(Keyboard::Key::BackSpace)) {
+						arquivo.pop_back();
+						arquivo.pop_back();
+					}
+
+					arquivo += event.text.unicode;
+					menu->setNomeArquivo(arquivo);
+					cout << arquivo << endl;*/
+						
+				}
 				break;
 			}
 			
@@ -103,7 +120,15 @@ void LarrysChallenge::executar()
 			cont = 0;
 		}
 
+
+
+
+
+
 		cont++;
+
+
+
 		
 		Time time = clock.getElapsedTime();
 		//cout << 1.0f / time.asSeconds() << endl;
@@ -134,14 +159,17 @@ void LarrysChallenge::desenhar_mouse()
 	//mousePos = Mouse::getPosition(*window);
 	//xMouse = (float)mousePos.x / 48 * 48;
 	//yMouse = (float)mousePos.y / 48 * 48;
+	//mousePos = Mouse::getPosition(*window);
 	Vector2i mousePos = Mouse::getPosition(*window);
 	//Mouse::setPosition(Vector2i(100, 100));
+	Vector2f mouse_world = window->mapPixelToCoords(mousePos);
 
 	if (xMouse < view->getCenter().x + (view->getSize().x / 2) - menu->getLarguraMenu()) {
 
 		if (!excluir) {
-			xMouse = (mousePos.x / 24 * 24);
-			yMouse = (mousePos.y / 24 * 24);
+			xMouse = static_cast<int>(mouse_world.x / 24) * 24;
+			yMouse = static_cast<int>(mouse_world.y / 24) * 24;
+
 
 			if (tipoEntidade != -1) {
 				window->setMouseCursorVisible(false);
@@ -151,15 +179,15 @@ void LarrysChallenge::desenhar_mouse()
 				window->setMouseCursorVisible(true);
 		}
 		else {
-			xMouse = mousePos.x;
-			yMouse = mousePos.y;
+			xMouse = mouse_world.x;
+			yMouse = mouse_world.y;
 			window->setMouseCursorVisible(true);
 			mouse->setSize(Vector2f(0, 0));
 		}
 	}
 	else {
-		xMouse = mousePos.x;
-		yMouse = mousePos.y;
+		xMouse = mouse_world.x;
+		yMouse = mouse_world.y;
 		window->setMouseCursorVisible(true);
 		mouse->setSize(Vector2f(0, 0));
 	}
@@ -220,17 +248,19 @@ void LarrysChallenge::acao_mouse()
 			mouse->setOrigin(Vector2f(comprimentoMouse / 2, alturaMouse / 2));
 
 			acao = menu->getAcao();
-			confirmar = menu->getConfirmar();
-			recusar = menu->getRecusar();
+			/*confirmar = menu->getConfirmar();
+			recusar = menu->getRecusar();*/
 
-			if (acao < 3) {
+			/*if (acao < 3) {
 				if (confirmar) {
 					if (acao == 0) 
 						gerenciadorFase->limpar_fase();
 					else if (acao == 1)
 						gerenciadorFase->carregar_fase(arquivo);
-					else if(acao == 2)
-						gerenciadorFase->salvar_fase(arquivo);
+					else if (acao == 2) {
+						//gerenciadorFase->salvar_fase(arquivo);
+					}
+						
 
 					menu->setConfirmar(false);
 					menu->setAcao(3);
@@ -242,6 +272,57 @@ void LarrysChallenge::acao_mouse()
 					menu->setAcao(3);
 					recusar = false;
 					acao = -1;
+				}
+			}*/
+
+			if (acao != -1) {
+
+				while (!done) {
+					cout << "O que deseja fazer?: " << endl;
+					cin >> opcao;
+					system("cls");
+
+					string novaAcao = "";
+					if (opcao == "novo" || opcao == "Novo") {
+
+						cout << "Criar nova fase?\nO conteudo da fase atual sera apagado definitivamente. " << endl;
+						cin >> novaAcao;
+						system("cls");
+						if (novaAcao == "y" || novaAcao == "s" || novaAcao == "sim" || novaAcao == "Sim") {
+							gerenciadorFase->limpar_fase();
+							break;
+						}
+					}
+					else if (opcao == "carregar" || opcao == "Carregar") {
+						cout << "carregar" << endl;
+					}
+					else if (opcao == "salvar" || opcao == "Salvar") {
+						cout << "Digite o nome do arquivo: " << endl;
+						cin >> arquivo;
+
+						if (gerenciadorFase->pesquisar_lista_arquivos(arquivo)) {
+							cout << "Arquivo com nome '" << arquivo << "' ja existe\nDeseja sobreescreve-lo?: " << endl;
+							cin >> novaAcao;
+
+							if (novaAcao == "y" || novaAcao == "s" || novaAcao == "sim" || novaAcao == "Sim") {
+								gerenciadorFase->salvar_fase(arquivo);
+								cout << "Fase salva com sucesso!" << endl;
+								break;
+							}
+						}
+						else {
+							gerenciadorFase->salvar_fase(arquivo);
+							cout << "Fase salva com sucesso!" << endl;
+							break;
+						}
+					}
+					else if (opcao == "cancelar" || opcao == "Cancelar" || opcao == "sair" || opcao == "Sair") {
+						acao = -1;
+						break;
+					}
+					else
+						cout << "Nao ha nenhuma acao com o nome '" << opcao << "'" << endl;
+					//done = true;
 				}
 			}
 		}

@@ -8,7 +8,7 @@
 #include <SFML/Graphics.hpp>
 
 enum Botoes{
-	NOVO,
+	OPCOES,
 	CARREGAR,
 	SALVAR,
 	OK,

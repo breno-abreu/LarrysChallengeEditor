@@ -30,8 +30,8 @@ private:
 
 	RectangleShape* entidade;
 	bool magnetico;
-	float xMouse;
-	float yMouse;
+	int xMouse;
+	int yMouse;
 
 	bool mouseLeft;
 	bool mouseRight;
@@ -43,8 +43,11 @@ private:
 	float comprimentoMouse;
 	float alturaMouse;
 
+	string opcao;
 	bool auxMouse;
 	bool excluir;
+
+	bool done;
 
 	int acao;
 	string arquivo;

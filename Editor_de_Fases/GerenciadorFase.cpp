@@ -50,3 +50,8 @@ void GerenciadorFase::setListaEntidades(ListaEntidades* _listaEntidades)
 {
 	listaEntidades = _listaEntidades;
 }
+
+bool GerenciadorFase::pesquisar_lista_arquivos(const string arquivo)
+{
+	return gerenciadorPersistencia->pesquisar_lista_arquivos(arquivo);
+}

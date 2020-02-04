@@ -12,19 +12,17 @@ GerenciadorPersistencia::~GerenciadorPersistencia()
 
 bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nomeArquivo)
 {
-	if (!pesquisar_lista_arquivos(nomeArquivo)) {
-		ofstream arquivo("Fases/" + nomeArquivo + ".lcs");
-		list<Entidade*> lista = listaEntidades->getLista();
-		list<Entidade*>::iterator itr;
+	ofstream arquivo("Fases/" + nomeArquivo + ".lcs");
+	list<Entidade*> lista = listaEntidades->getLista();
+	list<Entidade*>::iterator itr;
 
-		if (arquivo.is_open()) {
-			if (!listaEntidades->vazio()) {
-				for (itr = lista.begin(); itr != lista.end(); itr++) {
-					arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << endl;
-				}
-				arquivo.close();
-				return true;
+	if (arquivo.is_open()) {
+		if (!listaEntidades->vazio()) {
+			for (itr = lista.begin(); itr != lista.end(); itr++) {
+				arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << endl;
 			}
+			arquivo.close();
+			return true;
 		}
 	}
 	return false;
@@ -74,8 +72,10 @@ bool GerenciadorPersistencia::pesquisar_lista_arquivos(string nomeArquivo)
 	}
 	return false;*/
 
+	
+
 	for (const auto& entry : filesystem::directory_iterator("Fases")) {
-		if (entry.path().string() == nomeArquivo + ".lcs") {
+		if (entry.path().string() == "Fases\\" + nomeArquivo + ".lcs") {
 			return true;
 		}
 	}

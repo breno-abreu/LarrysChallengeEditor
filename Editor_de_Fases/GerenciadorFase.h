@@ -21,5 +21,6 @@ public:
 	void salvar_fase(string nomeArquivo);
 	void carregar_fase(string nomeArquivo);
 	void setListaEntidades(ListaEntidades* _listaEntidades);
+	bool pesquisar_lista_arquivos(const string arquivo);
 };
 
