@@ -1,73 +1,51 @@
 #pragma once
 #include "bibliotecas.h"
+//Classe dos objetos com representação gráfica.
 
 class Entidade
 {
 protected:
-	int codigo;
-	int xTile;
-	int yTile;
-	int profundidade;
-	int direcao;
-	int comprimentoUnidade;
-	int alturaUnidade;
-	int quantidadeLinhas;
-	int quantidadeColunas;
-	int tipo;
-	float xEntidade;
-	float yEntidade;
-	float xEntidadeOrigem;
-	float yEntidadeOrigem;
-	float comprimento;
 	float altura;
-	float cx;
-	float cy;
-	bool existe;
-	string nome;
-	string diretorio;
-	RenderWindow *window;
-	RectangleShape entidade;
-	Texture *textura;
-	Font* fonte;
-	Text* texto;
+	float comprimento;
+	float xEntidade;
+	float xEntidadeOrigem;
+	float yEntidade;
+	float yEntidadeOrigem;
+	int codigo;
+	short int profundidade;
+	short int tipo;
 	string conexao;
+	RectangleShape entidade;
+	RenderWindow* window;
+	Texture* textura;
+	Font fonte;
+	Text texto;
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, float _yEntidade, int _codigo, int _profundidade, int _tipo, float proporcao = 3);
+	Entidade(RenderWindow* _window, Texture* _textura, const float _xEntidade, const float _yEntidade, const int _codigo, const int _profundidade, const int _tipo, const float _proporcao = 3);
 	~Entidade();
-	void existir(int viewx, int viewy);
-	void existir_menu(const float xView, const float yView);
 	void desenhar_entidade();
+	void existir_menu(const float xView, const float yView);
+	void existir(const int viewx, const int viewy);
+	void setAltura(const float altura);
 	void setCodigo(const int codigo);
+	void setComprimento(const float comprimento);
+	void setConexao(const string conexao);
+	void setCoordenadas(const float _xEntidade, const float _yEntidade);
+	void setProfundidade(const int profundidade);
 	void setTipo(const int _nome);
 	void setxEntidade(const float xEntidade);
 	void setyEntidade(const float yEntidade);
-	void setComprimento(const float comprimento);
-	void setAltura(const float altura);
-	void setxTile(const int xTile);
-	void setyTile(const int yTile);
-	void setExiste(const bool existe);
-	void setProfundidade(const int profundidade);
-	void setDirecao(const int direcao);
-	void setRenderWindow(RenderWindow* _window);
-	void setCoordenadas(const float _xEntidade, const float _yEntidade);
-	int getCodigo() const;
+	float getAltura() const;
+	float getComprimento() const;
 	float getxEntidade() const;
 	float getyEntidade() const;
-	float getComprimento() const;
-	float getAltura() const;
-	int getxTile() const;
-	int getyTile() const;
+	int getCodigo() const;
 	int getProfundidade() const;
-	int getDirecao() const;
-	bool getExiste() const;
 	int getTipo() const;
-	void setConexao(const string conexao);
 	string getConexao()const;
-	bool operator == (const Entidade& _entidade) const;
 	bool operator != (const Entidade& _entidade) const;
-	//bool operator < (const Entidade& _entidade) const;
-
+	bool operator == (const Entidade& _entidade) const;
 };
 

@@ -5,15 +5,9 @@
 #include <fstream>
 #include <cstdio>
 #include <filesystem>
+//Biblioteca gráfica do SFML
 #include <SFML/Graphics.hpp>
 
-enum Botoes{
-	OPCOES,
-	CARREGAR,
-	SALVAR,
-	OK,
-	CANCELAR
-};
-
 using namespace std;
+//Os métodos do SFML utilizam o namespace 'sf'.
 using namespace sf;

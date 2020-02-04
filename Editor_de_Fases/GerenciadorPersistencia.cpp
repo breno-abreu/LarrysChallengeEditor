@@ -2,15 +2,15 @@
 
 GerenciadorPersistencia::GerenciadorPersistencia()
 {
-	listaEntidades = NULL;
+
 }
 
 GerenciadorPersistencia::~GerenciadorPersistencia()
 {
-	delete listaEntidades;
+
 }
 
-bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nomeArquivo)
+bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, const string nomeArquivo)
 {
 	ofstream arquivo("Fases/" + nomeArquivo + ".lcs");
 	list<Entidade*> lista = listaEntidades->getLista();
@@ -27,7 +27,8 @@ bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nome
 	}
 	return false;
 }
-ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWindow* _window)
+
+ListaEntidades* GerenciadorPersistencia::carregar(const string nomeArquivo, RenderWindow* _window)
 {
 	ListaEntidades* lista = new ListaEntidades(_window);
 	ifstream arquivo("Fases/" + nomeArquivo + ".lcs");
@@ -49,7 +50,7 @@ ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWind
 	return lista;
 }
 
-bool GerenciadorPersistencia::excluir_arquivo(string nomeArquivo)
+bool GerenciadorPersistencia::excluir_arquivo(const string nomeArquivo)
 {
 	string aux = "";
 	for (const auto& entry : filesystem::directory_iterator("Fases")) {
@@ -63,32 +64,15 @@ bool GerenciadorPersistencia::excluir_arquivo(string nomeArquivo)
 	}
 	return false;
 }
-bool GerenciadorPersistencia::pesquisar_lista_arquivos(string nomeArquivo)
+
+bool GerenciadorPersistencia::pesquisar_lista_arquivos(const string nomeArquivo)
 {
-	/*list<string>::iterator itr;
-
-	for (itr = arquivos.begin(); itr != arquivos.end(); itr++) {
-		if (nomeArquivo == *itr)
-			return true;
-	}
-	return false;*/
-
-	
-
 	for (const auto& entry : filesystem::directory_iterator("Fases")) {
 		if (entry.path().string() == "Fases\\" + nomeArquivo + ".lcs") {
 			return true;
 		}
 	}
 	return false;
-}
-
-list<string> GerenciadorPersistencia::getArquivos()
-{
-	for (const auto& entry : filesystem::directory_iterator("Fases")) {
-		arquivos.push_front(entry.path().string());
-	}
-	return arquivos;
 }
 
 void GerenciadorPersistencia::listar_arquivos()

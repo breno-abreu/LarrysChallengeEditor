@@ -2,6 +2,8 @@
 #include "bibliotecas.h"
 #include "Entidade.h"
 #include "GerenciadorEntidades.h"
+//Classe que irá implementar uma lista de Entidades e suas principais funcionalidades...
+//... como incluir e excluir elementos e percorrer a lista.
 
 class ListaEntidades
 {
@@ -15,18 +17,21 @@ public:
 	ListaEntidades();
 	ListaEntidades(RenderWindow* _window);
 	~ListaEntidades();
-	void adicionar_entidade(const int mousex, const int mousey, const int tipo, float proporcao, int viewx = 0, int viewy = 0);
-	void adicionar_entidade_menu(int mousex, int mousey, int tipo, float proporcao, int viewx = 0, int viewy = 0);
-	void adicionar_entidade_carregar(int mousex, int mousey, int tipo, float proporcao, string _conexao = "-1");
-	void excluir_entidade(const int mousex, const int mousey, int viewx, int viewy);
-	void percorrer(int view, int viey);
-	void percorrer_menu(const float xView, const float yView);
+	bool vazio();
+	int verificar_entidades_menu(const int mousex, const int mousey);
+	list<Entidade*> getLista();
+	void adicionar_entidade_carregar(const int mousex, const int mousey, const int tipo, const float proporcao, const string _conexao = "-1");
+	void adicionar_entidade_menu(const int mousex, const int mousey, const int tipo, const float proporcao, const int viewx = 0, const int viewy = 0);
+	void adicionar_entidade(const int mousex, const int mousey, const int tipo, const float proporcao, const int viewx = 0, const int viewy = 0);
+	void excluir_entidade(const int mousex, const int mousey, const int viewx, int const viewy);
 	void limpar();
 	void ordenar();
-	bool vazio();
-	list<Entidade*> getLista();
-	void setLista(list<Entidade*> lista);
-	int verificar_entidades_menu(const int mousex, const int mousey);
+	void percorrer_menu(const float xView, const float yView);
+	void percorrer(const int view, const int viey);
 	void setConexao(const int conexao);
+	void setLista(list<Entidade*> lista);
+
+
+
 };
 

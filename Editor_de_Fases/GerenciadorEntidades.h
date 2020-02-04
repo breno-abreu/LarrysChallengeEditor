@@ -1,10 +1,12 @@
 #pragma once
 #include "bibliotecas.h"
 #include "Entidade.h"
+//Fábrica de objetos da classe Entidade.
 
 class GerenciadorEntidades
 {
 private:
+	//Aqui são criadas as texturas que serão referenciadas pelos objetos de Entidade.
 	RenderWindow* window;
 	Texture a;
 	Texture b;
@@ -62,7 +64,8 @@ private:
 	Texture bb;
 	Texture bc;
 
-
+	//A lista de objetos do tipo Entidade será ordenada de acordo com os valores do vetor 'profundidade'...
+	//...para que certos objetos fiquem graficamente a frente de outros.
 	int profundidade[55] = {3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 
 							3, 2, 2, 2, 2, 2, 2, 3, 3, 1, 
 							2, 2, 2, 2, 2, 2, 2, 2, 2, 2,

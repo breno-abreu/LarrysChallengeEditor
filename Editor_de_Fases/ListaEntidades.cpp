@@ -4,15 +4,15 @@
 ListaEntidades::ListaEntidades()
 {
 	codigo = 0;
-	gerenciadorEntidades = NULL;
 	conexao = 0;
+	gerenciadorEntidades = NULL;
 }
 
 ListaEntidades::ListaEntidades(RenderWindow* _window)
 {
 	codigo = 0;
-	gerenciadorEntidades = new GerenciadorEntidades(_window);
 	conexao = 0;
+	gerenciadorEntidades = new GerenciadorEntidades(_window);
 }
 
 ListaEntidades::~ListaEntidades()
@@ -20,8 +20,8 @@ ListaEntidades::~ListaEntidades()
 	limpar();
 	delete gerenciadorEntidades;
 }
-
-void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, float proporcao, int viewx, int viewy)
+//Inclusão de entidades na fase. Se o tipo for igual a um dos tipos citados abaixo, significa que o objeto possui uma conexão com outro.
+void ListaEntidades::adicionar_entidade(const int mousex, const int mousey, const int tipo, const float proporcao, const int viewx, const int viewy)
 {
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo, proporcao);
@@ -37,15 +37,16 @@ void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, float 
 	listaEntidades.push_back(entidade);
 	ordenar();
 }
-
-void ListaEntidades::adicionar_entidade_menu(int mousex, int mousey, int tipo, float proporcao, int viewx, int viewy)
+//Inclusão de entidades do menu.
+void ListaEntidades::adicionar_entidade_menu(const int mousex, const int mousey, const int tipo, const float proporcao, const int viewx, const int viewy)
 {
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo, proporcao);
 	listaEntidades.push_back(entidade);
 	ordenar();
 }
-void ListaEntidades::adicionar_entidade_carregar(int mousex, int mousey, int tipo, float proporcao, string _conexao)
+//Inclusão de entidades ao carregar uma fase por um arquivo.
+void ListaEntidades::adicionar_entidade_carregar(const int mousex, const int mousey, const int tipo, const float proporcao, const string _conexao)
 {
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex, mousey, tipo, codigo, proporcao);
@@ -54,17 +55,9 @@ void ListaEntidades::adicionar_entidade_carregar(int mousex, int mousey, int tip
 	ordenar();
 }
 
-void ListaEntidades::excluir_entidade(int mousex, int mousey, int viewx, int viewy)
+void ListaEntidades::excluir_entidade(const int mousex, const int mousey, const int viewx, const int viewy)
 {
 	list<Entidade*>::reverse_iterator itr;
-	/*for (itr = listaEntidades.rbegin(); itr != listaEntidades.rend(); itr++) {
-		if (mousex - viewx > (*itr)->getxEntidade() && mousex - viewx < (*itr)->getxEntidade() + (*itr)->getComprimento()
-			&& mousey - viewy > (*itr)->getyEntidade() && mousey - viewy < (*itr)->getyEntidade() + (*itr)->getAltura()) {
-			listaEntidades.erase(next(itr).base());
-			break;
-		}
-	}*/
-
 	for (itr = listaEntidades.rbegin(); itr != listaEntidades.rend(); itr++) {
 		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
 			&& mousey >(*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
@@ -73,13 +66,15 @@ void ListaEntidades::excluir_entidade(int mousex, int mousey, int viewx, int vie
 		}
 	}
 }
-void ListaEntidades::percorrer(int viewx, int viewy)
+//Percorrimento da lista da fase.
+void ListaEntidades::percorrer(const int viewx, const int viewy)
 {
 	list<Entidade*>::iterator itr;
 	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
 		(*itr)->existir(viewx, viewy);
 	}
 }
+//Percorrimento da lista do menu.
 void ListaEntidades::percorrer_menu(const float xView, const float yView)
 {
 	list<Entidade*>::iterator itr;
@@ -87,11 +82,26 @@ void ListaEntidades::percorrer_menu(const float xView, const float yView)
 		(*itr)->existir_menu(xView, yView);
 	}
 }
+//Verifica se há algum objeto nas coordenadas recebidas.
+int ListaEntidades::verificar_entidades_menu(const int mousex, const int mousey)
+{
+	list<Entidade*>::iterator itr;
+	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++) {
+		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
+			&& mousey >(*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
+			return (*itr)->getTipo();
+		}
+	}
+	return -1;
+}
+
 void ListaEntidades::limpar()
 {
 	listaEntidades.clear();
 	codigo = 0;
 }
+//Ordena a lista em relação ao atributo 'profundidade' de uma Entidade, dessa forma é possível...
+//... posicionar objetos sobrepostos, causando o efeito de distância entre eles.
 void ListaEntidades::ordenar()
 {
 	listaEntidades.sort([](Entidade * a, Entidade * b) {return a->getProfundidade() < b->getProfundidade(); });
@@ -110,18 +120,6 @@ list<Entidade*> ListaEntidades::getLista()
 void ListaEntidades::setLista(list<Entidade*> lista) 
 {
 	listaEntidades = lista;
-}
-
-int ListaEntidades::verificar_entidades_menu(const int mousex, const int mousey)
-{
-	list<Entidade*>::iterator itr;
-	for (itr = listaEntidades.begin(); itr != listaEntidades.end(); itr++){
-		if (mousex > (*itr)->getxEntidade() && mousex < (*itr)->getxEntidade() + (*itr)->getComprimento()
-			&& mousey >(*itr)->getyEntidade() && mousey < (*itr)->getyEntidade() + (*itr)->getAltura()) {
-			return (*itr)->getTipo();
-		}
-	}
-	return -1;
 }
 
 void ListaEntidades::setConexao(const int _conexao)

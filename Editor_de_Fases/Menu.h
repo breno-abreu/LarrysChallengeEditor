@@ -5,26 +5,20 @@
 class Menu
 {
 private:
-	ListaEntidades* listaEntidades;
-	list<Botao*> listaBotoes;
-	list<string> listaArquivos;
-	int acao;
-	RectangleShape* background;
-	RenderWindow* window;
-	View* view;
+	const int larguraMenu;
 	float origemxBackground;
 	float origemyBackground;
 	float xBackground;
 	float yBackground;
+	int acao;
 	int tipoEntidade;
-	Text* texto;
-	Font* fonte;
-	Text* arquivoOut;
-	string frase;
 	string arquivoIn;
-	bool confirmar;
-	bool recusar;
-	const int larguraMenu;
+	list<Botao*> listaBotoes;
+	ListaEntidades* listaEntidades;
+	RectangleShape background;
+	RenderWindow* window;
+	View* view;
+	Text arquivoOut;
 
 public:
 	Menu();
@@ -42,12 +36,7 @@ public:
 	void verificar_botoes(const int mousex, const int mousey);
 	void criar_botoes_entidades();
 	void verificar_botoes_entidade(const int mousex, const int mousey);
-	bool getConfirmar()const;
-	void setConfirmar(const bool _confirmar);
-	void setRecusar(const bool _recusar);
-	bool getRecusar()const;
 	float getLarguraMenu()const;
-	void setListaArquivos(const list<string> _listaArquivos);
 	void setNomeArquivo(const string _texto);
 
 };

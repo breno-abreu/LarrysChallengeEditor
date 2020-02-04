@@ -4,58 +4,39 @@
 #include "GerenciadorFase.h"
 #include "GerenciadorEntidades.h"
 #include "Menu.h"
+//Classse principal, onde será executado o loop principal do programa.
 
 class LarrysChallenge
 {
 private:
+	RenderWindow* window;
 	GerenciadorFase *gerenciadorFase;
-	int tipoMouse;
-	RenderWindow *window;
-	Entidade* imagemMouse;
-	int tipoEntidade;
 	GerenciadorEntidades* gerenciadorEntidades;
+	Entidade* imagemMouse;
 	RectangleShape* mouse;
 	Texture* texturaMouse;
-	Vector2i mousePos;
-	View *view;
-	const float VIEW_HEIGHT;
-	const float	VIEW_WITDH;
-	float aspectRatio;
-
-
+	View* view;
 	Menu* menu;
 
-	Clock clock;
-
-
-	RectangleShape* entidade;
-	bool magnetico;
+	int tipoEntidade;
+	int tipoMouse;
 	int xMouse;
 	int yMouse;
-
-	bool mouseLeft;
-	bool mouseRight;
-
+	int acao;
+	const float comprimentoView;
+	const float	alturaView;
 	float auxVertical;
 	float auxHorizontal;
 	float vel;
-
 	float comprimentoMouse;
 	float alturaMouse;
-
-	string opcao;
-	bool auxMouse;
+	bool mouseLeft;
+	bool mouseRight;
 	bool excluir;
-
 	bool done;
-
-	int acao;
-	string arquivo;
-
-	bool confirmar;
-	bool recusar;
-
 	int cont;
+	string opcao;
+	string arquivo;
 
 public:
 	LarrysChallenge();

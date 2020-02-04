@@ -2,21 +2,18 @@
 #include "bibliotecas.h"
 #include "ListaEntidades.h"
 #include "GerenciadorPersistencia.h"
+//Classe que contém os métodos relativos ao salvamento e carregamento de fases que estão contidas na pasta 'Fases'.
+//Os arquivos possuem a extensão .LCS.
 
 class GerenciadorPersistencia
 {
-private:
-	list<string> arquivos;
-	ListaEntidades* listaEntidades;
-
 public:
 	GerenciadorPersistencia();
 	~GerenciadorPersistencia();
-	bool salvar(ListaEntidades* listaEntidades, string nomeArquivo);
-	ListaEntidades* carregar(string nomeArquivo, RenderWindow* _window);
-	bool excluir_arquivo(string nomeArquivo);
-	bool pesquisar_lista_arquivos(string nomeArquivo);
+	bool excluir_arquivo(const string nomeArquivo);
+	bool pesquisar_lista_arquivos(const string nomeArquivo);
+	bool salvar(ListaEntidades* listaEntidades, const string nomeArquivo);
+	ListaEntidades* carregar(const string nomeArquivo, RenderWindow* _window);
 	void listar_arquivos();
-	list<string> getArquivos();
 };
 
