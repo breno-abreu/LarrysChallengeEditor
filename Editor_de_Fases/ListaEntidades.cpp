@@ -5,12 +5,14 @@ ListaEntidades::ListaEntidades()
 {
 	codigo = 0;
 	gerenciadorEntidades = NULL;
+	conexao = 0;
 }
 
 ListaEntidades::ListaEntidades(RenderWindow* _window)
 {
 	codigo = 0;
 	gerenciadorEntidades = new GerenciadorEntidades(_window);
+	conexao = 0;
 }
 
 ListaEntidades::~ListaEntidades()
@@ -28,12 +30,6 @@ void ListaEntidades::adicionar_entidade(int mousex, int mousey, int tipo, float 
 		tipo == 42 || tipo == 43 || tipo == 44 ||
 		tipo == 45 || tipo == 47 || tipo == 49 ||
 		tipo == 52) {
-
-
-		int conexao;
-		system("cls");
-		cout << "Estabelecer conexao: " << endl;
-		cin >> conexao;
 		string aux = to_string(conexao);
 		entidade->setConexao(aux);
 	}
@@ -49,6 +45,15 @@ void ListaEntidades::adicionar_entidade_menu(int mousex, int mousey, int tipo, f
 	listaEntidades.push_back(entidade);
 	ordenar();
 }
+void ListaEntidades::adicionar_entidade_carregar(int mousex, int mousey, int tipo, float proporcao, string _conexao)
+{
+	codigo++;
+	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex, mousey, tipo, codigo, proporcao);
+	entidade->setConexao(_conexao);
+	listaEntidades.push_back(entidade);
+	ordenar();
+}
+
 void ListaEntidades::excluir_entidade(int mousex, int mousey, int viewx, int viewy)
 {
 	list<Entidade*>::reverse_iterator itr;
@@ -117,4 +122,9 @@ int ListaEntidades::verificar_entidades_menu(const int mousex, const int mousey)
 		}
 	}
 	return -1;
+}
+
+void ListaEntidades::setConexao(const int _conexao)
+{
+	conexao = _conexao;
 }

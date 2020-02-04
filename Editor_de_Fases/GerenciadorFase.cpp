@@ -60,3 +60,8 @@ void  GerenciadorFase::listar_arquivos()
 {
 	gerenciadorPersistencia->listar_arquivos();
 }
+
+void GerenciadorFase::setConexao(const int _conexao)
+{
+	listaEntidades->setConexao(_conexao);
+}

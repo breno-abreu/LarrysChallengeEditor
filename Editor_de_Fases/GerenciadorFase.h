@@ -23,5 +23,6 @@ public:
 	void setListaEntidades(ListaEntidades* _listaEntidades);
 	bool pesquisar_lista_arquivos(const string arquivo);
 	void listar_arquivos();
+	void setConexao(const int _conexao);
 };
 

@@ -25,7 +25,7 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, f
 	entidade.setTexture(textura);
 
 
-	conexao = "";
+	conexao = "-1";
 
 	fonte = new Font();
 	if (!fonte->loadFromFile("Arial.ttf")) {
@@ -35,7 +35,7 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, f
 	texto->setFont(*fonte);
 	texto->setString(conexao);
 	texto->setCharacterSize(17);
-	texto->setFillColor(Color::White);
+	texto->setFillColor(Color::Blue);
 	texto->setPosition(xEntidade - comprimento / 1.2, yEntidade - 15);
 
 }
@@ -91,7 +91,9 @@ void Entidade::desenhar_entidade()
 {
 	
 	window->draw(entidade);
-	window->draw(*texto);
+
+	if(conexao != "-1")
+		window->draw(*texto);
 }
 
 void Entidade::setCodigo(const int _codigo)

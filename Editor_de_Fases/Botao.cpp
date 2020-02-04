@@ -32,7 +32,7 @@ Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distan
 	texto->setString(_texto);
 	texto->setCharacterSize(20);
 	texto->setFillColor(Color::Black);
-	texto->setPosition(distanciax + distanciaxTexto, distanciay);
+	texto->setPosition(Vector2f(window->getSize().x - distanciax + distanciaxTexto, distanciay +  3));
 	tipo = _tipo;
 }
 Botao::~Botao()

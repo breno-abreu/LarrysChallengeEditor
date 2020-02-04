@@ -335,6 +335,13 @@ void LarrysChallenge::acao_mouse()
 						acao = -1;
 						break;
 					}
+					else if (opcao == "conexao" || opcao == "Conexao") {
+						int conexao;
+						cout << "Definir conexao: " << endl;
+						cin >> conexao;
+						gerenciadorFase->setConexao(conexao);
+						break;
+					}
 					else
 						cout << "Nao ha nenhuma acao com o nome '" << opcao << "'" << endl;
 					//done = true;

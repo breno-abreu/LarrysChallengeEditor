@@ -19,7 +19,7 @@ bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, string nome
 	if (arquivo.is_open()) {
 		if (!listaEntidades->vazio()) {
 			for (itr = lista.begin(); itr != lista.end(); itr++) {
-				arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << endl;
+				arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << " " << (*itr)->getConexao() << endl;
 			}
 			arquivo.close();
 			return true;
@@ -34,13 +34,14 @@ ListaEntidades* GerenciadorPersistencia::carregar(string nomeArquivo, RenderWind
 	int tipo = 1;
 	float xEntidade = 0;
 	float yEntidade = 0;
+	string conexao = "";
 
 
 	if (arquivo.is_open()) {
 		while (!arquivo.eof()) {
-			arquivo >> tipo >> xEntidade >> yEntidade;
+			arquivo >> tipo >> xEntidade >> yEntidade >> conexao;
 			if (arquivo.get() == '\n') {
-				lista->adicionar_entidade(xEntidade, yEntidade, tipo, 3);
+				lista->adicionar_entidade_carregar(xEntidade, yEntidade, tipo, 3, conexao);
 			}
 		}
 		arquivo.close();
