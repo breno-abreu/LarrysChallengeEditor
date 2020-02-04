@@ -16,6 +16,7 @@ public:
 	ListaEntidades* carregar(string nomeArquivo, RenderWindow* _window);
 	bool excluir_arquivo(string nomeArquivo);
 	bool pesquisar_lista_arquivos(string nomeArquivo);
+	void listar_arquivos();
 	list<string> getArquivos();
 };
 

@@ -89,3 +89,10 @@ list<string> GerenciadorPersistencia::getArquivos()
 	}
 	return arquivos;
 }
+
+void GerenciadorPersistencia::listar_arquivos()
+{
+	for (const auto& entry : filesystem::directory_iterator("Fases")) {
+		cout << entry.path().string() << endl;
+	}
+}

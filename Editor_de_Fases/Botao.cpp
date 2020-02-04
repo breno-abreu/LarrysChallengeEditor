@@ -19,7 +19,7 @@ Botao::Botao(RenderWindow* _window, const float _distanciax, const float _distan
 	distanciaxTexto = _distanciaxTexto;
 	botao = new RectangleShape();
 	botao->setSize(Vector2f(comprimento, altura));
-	botao->setPosition(distanciax, distanciay);
+	botao->setPosition(window->getSize().x - distanciax, distanciay);
 	botao->setFillColor(Color::Color(200, 200, 200, 255));
 	botao->setOutlineColor(Color::Black);
 	botao->setOutlineThickness(1);

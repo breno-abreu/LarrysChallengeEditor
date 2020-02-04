@@ -289,12 +289,27 @@ void LarrysChallenge::acao_mouse()
 						cin >> novaAcao;
 						system("cls");
 						if (novaAcao == "y" || novaAcao == "s" || novaAcao == "sim" || novaAcao == "Sim") {
+							auxHorizontal = 0;
+							auxVertical = 0;
 							gerenciadorFase->limpar_fase();
 							break;
 						}
 					}
 					else if (opcao == "carregar" || opcao == "Carregar") {
-						cout << "carregar" << endl;
+						gerenciadorFase->listar_arquivos();
+						cout << "\n\nDigite o nome do arquivo: " << endl;
+						cin >> arquivo;
+
+						if (gerenciadorFase->pesquisar_lista_arquivos(arquivo)) {
+							auxHorizontal = 0;
+							auxVertical = 0;
+							gerenciadorFase->carregar_fase(arquivo);
+							cout << "Fase '" << arquivo << "' carregada com sucesso!" << endl;
+							break;
+						}
+							
+						else
+							cout << "\nArquivo nao existente." << endl;
 					}
 					else if (opcao == "salvar" || opcao == "Salvar") {
 						cout << "Digite o nome do arquivo: " << endl;

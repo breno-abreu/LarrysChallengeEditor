@@ -55,3 +55,8 @@ bool GerenciadorFase::pesquisar_lista_arquivos(const string arquivo)
 {
 	return gerenciadorPersistencia->pesquisar_lista_arquivos(arquivo);
 }
+
+void  GerenciadorFase::listar_arquivos()
+{
+	gerenciadorPersistencia->listar_arquivos();
+}

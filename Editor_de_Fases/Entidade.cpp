@@ -23,6 +23,21 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, float _xEntidade, f
 	entidade.setSize(Vector2f(comprimento, altura));
 	entidade.setOrigin(Vector2f(comprimento / 2, altura / 2));
 	entidade.setTexture(textura);
+
+
+	conexao = "";
+
+	fonte = new Font();
+	if (!fonte->loadFromFile("Arial.ttf")) {
+		cout << "Erro ao carregar a fonte!" << endl;
+	}
+	texto = new Text();
+	texto->setFont(*fonte);
+	texto->setString(conexao);
+	texto->setCharacterSize(17);
+	texto->setFillColor(Color::White);
+	texto->setPosition(xEntidade - comprimento / 1.2, yEntidade - 15);
+
 }
 
 Entidade::Entidade()
@@ -52,6 +67,7 @@ Entidade::~Entidade()
 void Entidade::existir(int viewx, int viewy)
 {
 	entidade.setPosition(viewx + xEntidade, viewy + yEntidade);
+	texto->setPosition(xEntidade - comprimento / 1.2 + viewx, yEntidade - 15 + viewy);
 	desenhar_entidade();
 	//cout << xEntidade << endl;
 	//cx = entidade.getPosition().x;
@@ -73,7 +89,9 @@ void Entidade::existir_menu(const float xView, const float yView)
 
 void Entidade::desenhar_entidade()
 {
+	
 	window->draw(entidade);
+	window->draw(*texto);
 }
 
 void Entidade::setCodigo(const int _codigo)
@@ -190,3 +208,13 @@ bool Entidade::operator != (const Entidade& _entidade) const
 {
 	return profundidade < _entidade.getProfundidade();
 }*/
+
+void Entidade::setConexao(const string _conexao)
+{
+	conexao = _conexao;
+	texto->setString(conexao);
+}
+string Entidade::getConexao()const
+{
+	return conexao;
+}

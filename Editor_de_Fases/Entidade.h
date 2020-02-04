@@ -28,6 +28,9 @@ protected:
 	RenderWindow *window;
 	RectangleShape entidade;
 	Texture *textura;
+	Font* fonte;
+	Text* texto;
+	string conexao;
 
 public:
 	Entidade();
@@ -60,6 +63,8 @@ public:
 	int getDirecao() const;
 	bool getExiste() const;
 	int getTipo() const;
+	void setConexao(const string conexao);
+	string getConexao()const;
 	bool operator == (const Entidade& _entidade) const;
 	bool operator != (const Entidade& _entidade) const;
 	//bool operator < (const Entidade& _entidade) const;
