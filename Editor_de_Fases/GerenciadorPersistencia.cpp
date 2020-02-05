@@ -19,7 +19,7 @@ bool GerenciadorPersistencia::salvar(ListaEntidades* listaEntidades, const strin
 	if (arquivo.is_open()) {
 		if (!listaEntidades->vazio()) {
 			for (itr = lista.begin(); itr != lista.end(); itr++) {
-				arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidade() << " " << (*itr)->getyEntidade() << " " << (*itr)->getConexao() << endl;
+				arquivo << (*itr)->getTipo() << " " << (*itr)->getxEntidadeOrigem() << " " << (*itr)->getyEntidadeOrigem() << " " << (*itr)->getConexao() << endl;
 			}
 			arquivo.close();
 			return true;

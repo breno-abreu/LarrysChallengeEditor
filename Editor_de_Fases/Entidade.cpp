@@ -168,3 +168,12 @@ string Entidade::getConexao()const
 {
 	return conexao;
 }
+
+float Entidade::getxEntidadeOrigem() const
+{
+	return xEntidadeOrigem;
+}
+float Entidade::getyEntidadeOrigem() const
+{
+	return yEntidadeOrigem;
+}

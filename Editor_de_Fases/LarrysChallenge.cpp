@@ -179,6 +179,7 @@ void LarrysChallenge::acao_mouse()
 			if (acao != -1) {
 
 				while (!done) {
+					system("cls");
 					cout << "O que deseja fazer?: " << endl;
 					cin >> opcao;
 					system("cls");
@@ -198,7 +199,7 @@ void LarrysChallenge::acao_mouse()
 					}
 					else if (opcao == "carregar" || opcao == "Carregar") {
 						gerenciadorFase->listar_arquivos();
-						cout << "\n\nDigite o nome do arquivo: " << endl;
+						cout << "\nDigite o nome do arquivo: " << endl;
 						cin >> arquivo;
 
 						if (gerenciadorFase->pesquisar_lista_arquivos(arquivo)) {
@@ -213,7 +214,8 @@ void LarrysChallenge::acao_mouse()
 							cout << "\nArquivo nao existente." << endl;
 					}
 					else if (opcao == "salvar" || opcao == "Salvar") {
-						cout << "Digite o nome do arquivo: " << endl;
+						gerenciadorFase->listar_arquivos();
+						cout << "\nDigite o nome do arquivo: " << endl;
 						cin >> arquivo;
 
 						if (gerenciadorFase->pesquisar_lista_arquivos(arquivo)) {
@@ -228,7 +230,6 @@ void LarrysChallenge::acao_mouse()
 						}
 						else {
 							gerenciadorFase->salvar_fase(arquivo);
-							cout << "Fase salva com sucesso!" << endl;
 							break;
 						}
 					}
@@ -243,8 +244,10 @@ void LarrysChallenge::acao_mouse()
 						gerenciadorFase->setConexao(conexao);
 						break;
 					}
-					else
+					else {
 						cout << "Nao ha nenhuma acao com o nome '" << opcao << "'" << endl;
+						system("pause");
+					}
 				}
 			}
 			system("cls");

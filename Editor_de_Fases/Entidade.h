@@ -41,6 +41,8 @@ public:
 	float getComprimento() const;
 	float getxEntidade() const;
 	float getyEntidade() const;
+	float getxEntidadeOrigem() const;
+	float getyEntidadeOrigem() const;
 	int getCodigo() const;
 	int getProfundidade() const;
 	int getTipo() const;
