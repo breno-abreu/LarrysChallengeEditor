@@ -69,7 +69,7 @@ GerenciadorEntidades::GerenciadorEntidades(RenderWindow* _window)
 
 GerenciadorEntidades::~GerenciadorEntidades()
 {
-	delete texturas;
+
 }
 
 Texture* GerenciadorEntidades::getTextura(const int n)
