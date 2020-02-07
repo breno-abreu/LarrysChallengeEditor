@@ -1,10 +1,10 @@
 #include "LarrysChallenge.h"
 
 LarrysChallenge::LarrysChallenge():
-	alturaView(900),
-	comprimentoView(1600)
+	alturaView(480),
+	comprimentoView(800)
 {
-	window = new RenderWindow(VideoMode(1600, 900), "Larry's Challenge Editor", Style::Close | Style::Resize);
+	window = new RenderWindow(VideoMode(800, 480), "Larry's Challenge Editor", Style::Close | Style::Resize);
 	window->setFramerateLimit(60);
 	gerenciadorFase = new GerenciadorFase(window);
 	gerenciadorEntidades = new GerenciadorEntidades(window);
@@ -137,7 +137,6 @@ void LarrysChallenge::acao_mouse()
 	//Caso o clique do mouse esteja fora do menu.
 	if (xMouse < view->getCenter().x + (view->getSize().x / 2) - menu->getLarguraMenu() && tipoEntidade != -1) {
 		if (Mouse::isButtonPressed(Mouse::Left) && !mouseLeft) {
-
 			if (!excluir)
 				gerenciadorFase->adicionar_entidade(xMouse, yMouse, tipoEntidade, auxHorizontal, auxVertical, 3);
 			else

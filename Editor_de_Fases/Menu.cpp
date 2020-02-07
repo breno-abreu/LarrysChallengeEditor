@@ -40,7 +40,6 @@ Menu::Menu(RenderWindow* _window, View* _view):
 
 	criar_botoes();
 	criar_botoes_entidades();
-
 }
 
 void Menu::executar_botoes(const float xView, const float yView)
@@ -116,7 +115,7 @@ void Menu::criar_botoes_entidades()
 	int cont = 0;
 	int distanciaPadrao = 60;
 
-	for (int i = 0; i < 55; i++) {
+	for (int i = 0; i < 60; i++) {
 		listaEntidades->adicionar_entidade_menu(cx, cy, i, 2);
 		cx += distanciaPadrao;
 		cont++;

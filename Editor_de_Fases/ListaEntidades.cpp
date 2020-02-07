@@ -26,10 +26,10 @@ void ListaEntidades::adicionar_entidade(const int mousex, const int mousey, cons
 	codigo++;
 	Entidade* entidade = gerenciadorEntidades->criar_entidade(mousex - viewx, mousey - viewy, tipo, codigo, proporcao);
 
-	if (tipo == 31 || tipo == 34 || tipo == 35 ||
-		tipo == 42 || tipo == 43 || tipo == 44 ||
-		tipo == 45 || tipo == 47 || tipo == 49 ||
-		tipo == 52) {
+	if (tipo == 27 || tipo == 42 || tipo == 44 || 
+		tipo == 45 || tipo == 46 || tipo == 48 || 
+		tipo == 49 || tipo == 50 || tipo == 51 || 
+		tipo == 52 || tipo == 57 || tipo == 59) {
 		string aux = to_string(conexao);
 		entidade->setConexao(aux);
 	}

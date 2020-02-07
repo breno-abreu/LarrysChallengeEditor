@@ -63,22 +63,27 @@ private:
 	Texture ba;
 	Texture bb;
 	Texture bc;
+	Texture bd;
+	Texture be;
+	Texture bf;
+	Texture bg;
+	Texture bh;
 
 	//A lista de objetos do tipo Entidade será ordenada de acordo com os valores do vetor 'profundidade'...
 	//...para que certos objetos fiquem graficamente a frente de outros.
-	int profundidade[55] = {3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 
-							3, 2, 2, 2, 2, 2, 2, 3, 3, 1, 
-							2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-							2, 2, 2, 4, 4, 4, 3, 3, 3, 3,
-							3, 3, 3, 3, 3, 3, 3, 2, 2, 3,
-							4, 4, 2, 2, 3};
+	int profundidade[60] = {2, 3, 3, 3, 3, 2, 2, 2, 0, 3, 
+							3, 3, 3, 2, 2, 3, 3, 3, 1, 1, 
+							1, 1, 3, 3, 3, 3, 1, 1, 1, 1,
+							1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+							1, 1, 2, 2, 4, 4, 4, 2, 3, 3,
+							3, 3, 2, 2, 2, 4, 4, 3, 2, 2};
 
-	Texture* texturas[55] = { &a, &b, &c, &d, &e, &f, &g, &h, &i, &j, 
+	Texture* texturas[60] = { &a, &b, &c, &d, &e, &f, &g, &h, &i, &j, 
 							  &k, &l, &m, &n, &o, &p, &q, &r, &s, &t, 
 							  &u, &v, &w, &x, &y, &z, &aa, &ab, &ac, &ad,
 							  &ae, &af, &ag, &ah, &ai, &aj, &ak, &al, &am, &an,
 							  &ao, &ap, &aq, &ar, &as, &at, &au, &av, &aw, &ax,
-							  &ay, &az, &ba, &bb, &bc };
+							  &ay, &az, &ba, &bb, &bc, &bd, &be, &bf, &bg, &bh };
 
 public:
 	GerenciadorEntidades();
