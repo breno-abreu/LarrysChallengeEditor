@@ -29,7 +29,8 @@ void ListaEntidades::adicionar_entidade(const int mousex, const int mousey, cons
 	if (tipo == 27 || tipo == 42 || tipo == 44 || 
 		tipo == 45 || tipo == 46 || tipo == 48 || 
 		tipo == 49 || tipo == 50 || tipo == 51 || 
-		tipo == 52 || tipo == 57 || tipo == 59) {
+		tipo == 52 || tipo == 57 || tipo == 59 ||
+		tipo == 54 || tipo == 53) {
 		string aux = to_string(conexao);
 		entidade->setConexao(aux);
 	}

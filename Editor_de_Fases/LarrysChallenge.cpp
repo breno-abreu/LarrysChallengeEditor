@@ -77,7 +77,6 @@ void LarrysChallenge::executar()
 			cont = 0;
 		}
 		cont++;
-
 		window->clear(Color(50, 90, 80, 255));
 		window->setView(*view);
 		acao_mouse();
