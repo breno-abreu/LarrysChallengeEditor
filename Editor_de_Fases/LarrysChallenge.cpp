@@ -1,10 +1,10 @@
 #include "LarrysChallenge.h"
 
 LarrysChallenge::LarrysChallenge():
-	alturaView(480),
-	comprimentoView(800)
+	comprimentoView(1600),
+	alturaView(900)
 {
-	window = new RenderWindow(VideoMode(800, 480), "Larry's Challenge Editor", Style::Close | Style::Resize);
+	window = new RenderWindow(VideoMode(comprimentoView, alturaView), "Larry's Challenge Editor", Style::Close | Style::Resize);
 	window->setFramerateLimit(60);
 	gerenciadorFase = new GerenciadorFase(window);
 	gerenciadorEntidades = new GerenciadorEntidades(window);
