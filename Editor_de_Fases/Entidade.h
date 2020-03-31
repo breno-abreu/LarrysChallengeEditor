@@ -18,12 +18,11 @@ protected:
 	RectangleShape entidade;
 	RenderWindow* window;
 	Texture* textura;
-	Font fonte;
 	Text texto;
 
 public:
 	Entidade();
-	Entidade(RenderWindow* _window, Texture* _textura, const float _xEntidade, const float _yEntidade, const int _codigo, const int _profundidade, const int _tipo, const float _proporcao = 3);
+	Entidade(RenderWindow* _window, Texture* _textura, const float _xEntidade, const float _yEntidade, const int _codigo, const int _profundidade, const int _tipo, const Font* _fonte, const float _proporcao = 3);
 	~Entidade();
 	void desenhar_entidade();
 	void existir_menu(const float xView, const float yView);

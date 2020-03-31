@@ -69,6 +69,8 @@ GerenciadorEntidades::GerenciadorEntidades(RenderWindow* _window)
 	bf.loadFromFile("Textures/Switch_blue_orange.png");
 	bg.loadFromFile("Textures/Torch.png");
 	bh.loadFromFile("Textures/Switch_press.png");
+
+	fonte.loadFromFile("Arial.ttf");
 }
 GerenciadorEntidades::~GerenciadorEntidades()
 {
@@ -82,6 +84,6 @@ Texture* GerenciadorEntidades::getTextura(const int n)
 //A fábrica retorna um objeto da classe Entidade com as especificações necessárias.
 Entidade* GerenciadorEntidades::criar_entidade(const int mousex, const int mousey, const int tipo, const int codigo, const float proporcao)
 {
-	Entidade* entidade = new Entidade(window, texturas[tipo], mousex, mousey, codigo, profundidade[tipo], tipo, proporcao);
+	Entidade* entidade = new Entidade(window, texturas[tipo], mousex, mousey, codigo, profundidade[tipo], tipo, &fonte, proporcao);
 	return entidade;
 }

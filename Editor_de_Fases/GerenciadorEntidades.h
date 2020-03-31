@@ -8,6 +8,7 @@ class GerenciadorEntidades
 private:
 	//Aqui são criadas as texturas que serão referenciadas pelos objetos de Entidade.
 	RenderWindow* window;
+	Font fonte;
 	Texture a;
 	Texture b;
 	Texture c;

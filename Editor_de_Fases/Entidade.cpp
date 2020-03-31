@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(RenderWindow* _window, Texture* _textura, const float _xEntidade, const float _yEntidade, const int _codigo, const int _profundidade, const int _tipo, const float _proporcao)
+Entidade::Entidade(RenderWindow* _window, Texture* _textura, const float _xEntidade, const float _yEntidade, const int _codigo, const int _profundidade, const int _tipo, const Font* _fonte, const float _proporcao)
 {
 	textura = _textura;
 	comprimento = textura->getSize().x * _proporcao;
@@ -19,12 +19,8 @@ Entidade::Entidade(RenderWindow* _window, Texture* _textura, const float _xEntid
 	entidade.setSize(Vector2f(comprimento, altura));
 	entidade.setOrigin(Vector2f(comprimento / 2, altura / 2));
 	entidade.setTexture(textura);
-
-	if (!fonte.loadFromFile("Arial.ttf")) {
-		cout << "Erro ao carregar a fonte!" << endl;
-	}
 	
-	texto.setFont(fonte);
+	texto.setFont(*_fonte);
 	texto.setString(conexao);
 	texto.setCharacterSize(17);
 	texto.setFillColor(Color::Blue);
